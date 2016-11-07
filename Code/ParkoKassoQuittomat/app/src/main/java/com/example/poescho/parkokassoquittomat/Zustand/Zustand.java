@@ -1,4 +1,4 @@
-package com.example.poescho.parkokassoquittomat;
+package com.example.poescho.parkokassoquittomat.Zustand;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,23 +8,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.poescho.parkokassoquittomat.R;
 
-public class Parkscheinausgabe extends Fragment {
+
+public class Zustand extends Fragment {
     private static final String ARG_EXAMPLE = "constant";
     private String example_data;
 
-    public Parkscheinausgabe()
+    public Zustand()
   {
 
   }
 
-    public static Parkscheinausgabe newInstance(String example_argument)
+    public static Zustand newInstance(String example_argument)
     {
-        Parkscheinausgabe parkscheinausgabe = new Parkscheinausgabe();
+        Zustand zustand = new Zustand();
         Bundle args = new Bundle();
         args.putString(ARG_EXAMPLE, example_argument);
-        parkscheinausgabe.setArguments(args);
-        return parkscheinausgabe;
+        zustand.setArguments(args);
+        return zustand;
     }
 
     @Override
@@ -37,6 +39,6 @@ public class Parkscheinausgabe extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_parkscheinausgabe,container,false);
+        return inflater.inflate(R.layout.fragment_zustand,container,false);
     }
 }

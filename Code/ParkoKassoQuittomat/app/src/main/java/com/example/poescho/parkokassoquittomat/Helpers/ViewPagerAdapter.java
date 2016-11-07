@@ -1,4 +1,4 @@
-package com.example.poescho.parkokassoquittomat;
+package com.example.poescho.parkokassoquittomat.Helpers;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

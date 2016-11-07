@@ -1,4 +1,4 @@
-package com.example.poescho.parkokassoquittomat;
+package com.example.poescho.parkokassoquittomat.Quittungsuebersicht;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.poescho.parkokassoquittomat.R;
 
 
 public class Quittungsuebersicht extends Fragment {
