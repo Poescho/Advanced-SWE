@@ -37,7 +37,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle"
             android:layout_weight="0.61"
-            android:padding="5dp">
+            android:padding="5dp"
+            android:id="@+id/parkschein">
 
             <TextView
                 android:text="Parkschein"
@@ -112,9 +113,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_bearbeite"
+            android:id="@+id/btn_bearbeiten"
             android:layout_weight="0.03"
-            android:text="Bearbeite" />
+            android:text="Bearbeiten" />
 
     </LinearLayout>
 

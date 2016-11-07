@@ -32,10 +32,6 @@
         <value>1</value>
       </counter>
       <counter>
-        <item-type type-id="" type="DrawingItem" />
-        <value>1</value>
-      </counter>
-      <counter>
         <item-type type-id="activity-parameter-node" type="UmlActivityParameterNode" />
         <value>2</value>
       </counter>
@@ -63,6 +59,10 @@
         <item-type type-id="package" type="UmlPackage" />
         <value>1</value>
       </counter>
+      <counter>
+        <item-type type-id="class" type="UmlClass" />
+        <value>3</value>
+      </counter>
     </entity-names>
     <entity-ids>
       <counter>
@@ -88,10 +88,6 @@
       <counter>
         <item-type type-id="swimlane" type="UmlSwimlane" />
         <value>3</value>
-      </counter>
-      <counter>
-        <item-type type-id="" type="AbstractElementGroup" />
-        <value>51</value>
       </counter>
       <counter>
         <item-type type-id="action" type="UmlAction" />
@@ -137,6 +133,18 @@
         <item-type type-id="exception-handler" type="UmlExceptionHandler" />
         <value>7</value>
       </counter>
+      <counter>
+        <item-type type-id="class" type="UmlClass" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="" type="AbstractElementGroup" />
+        <value>18</value>
+      </counter>
+      <counter>
+        <item-type type-id="dependency" type="UmlDependency" />
+        <value>2</value>
+      </counter>
     </entity-ids>
     <diagrams>
       <counter>
@@ -147,8 +155,21 @@
         <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlActivityDiagram</type>
         <value>1</value>
       </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>1</value>
+      </counter>
     </diagrams>
-    <fields />
+    <fields>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.AttributeField</type>
+        <value>9</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.OperationField</type>
+        <value>10</value>
+      </counter>
+    </fields>
   </counters>
   <alias-groups />
   <management>
@@ -364,7 +385,7 @@
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-activity" id="pecc663ec2328490aa288da417338c853_684127956" name="Aktivitaetsdiagramm" order-index="2" overview-order-index="0" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+      <diagram type="uml-class" id="pda9bc200d0734174b33428a1f8007045_144443936" name="ClassDiagram1" order-index="2" overview-order-index="0" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -375,22 +396,77 @@
             <author> </author>
           </authors>
           <description />
-          <creation-date>10/19/2016 11:55:57</creation-date>
-          <change-date>10/19/2016 12:42:21</change-date>
+          <creation-date>11/01/2016 20:42:10</creation-date>
+          <change-date>11/01/2016 20:45:39</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
         <abstract-items>
-          <item id="di899175160440079008" cid="ELEM002" type="frame" name="Frame1" style-class="" owner="di334461051267661789" visibility="package" change-tracking-state="added" creation-date="10/19/2016 12:03:58">
+          <item id="di444327710704921719" cid="C001" type="class" name="Parkschein" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:42:22">
             <style class="default" />
-            <frame />
+            <attributes>
+              <attribute id="a25ca05f6bbc54812b79b118401442ce9756" cid="ELEM001" name="Date" type="" type-id="" visibility="private">
+                <style class="default" />
+              </attribute>
+              <attribute id="a497abf79a6134310b142be806627f4ed764" cid="ELEM007" name="" type="" type-id="" visibility="undefined">
+                <style class="default" />
+              </attribute>
+            </attributes>
           </item>
-          <item id="di714734478526371076" cid="ELEM007" type="frame" name="Frame2" style-class="" owner="di334461051267661789" visibility="package" change-tracking-state="added" creation-date="10/19/2016 12:04:03">
+          <item id="di764922682613929835" cid="C002" type="class" name="Kassenautomat" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:43:12">
             <style class="default" />
-            <frame />
+            <attributes>
+              <attribute id="a0ba7b9d874874cd6b249b97899866b8b597" cid="ELEM002" name="Parkmuenzen" type="" type-id="" visibility="private">
+                <style class="default" />
+              </attribute>
+              <attribute id="ac3d179cf06e54cdf8f1842c56c33353d447" cid="ELEM003" name="Wechselgeld" type="" type-id="" visibility="private">
+                <style class="default" />
+              </attribute>
+            </attributes>
+            <operations>
+              <operation id="of71da5da93054545a4723d981a1fbf96654" cid="ELEM004" name="BerechneBetrag" type="" type-id="" visibility="public">
+                <style class="default" />
+              </operation>
+              <operation id="o36e6c123740f46e09eda582cbcacba06533" cid="ELEM009" name="BerechneWechselgeld" type="" type-id="" visibility="public">
+                <style class="default" />
+              </operation>
+              <operation id="o578dfd8473e44076a9873ac7d2edff2e813" cid="ELEM005" name="ErstelleQuittung" type="" type-id="" visibility="public">
+                <style class="default" />
+              </operation>
+            </operations>
+          </item>
+          <item id="di812043835533723305" cid="C003" type="class" name="Quittung" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:44:29">
+            <style class="default" />
+            <attributes>
+              <attribute id="a446d4e57ac194e11ae94697a55eab4d9860" cid="ELEM006" name="ReceiveDate" type="" type-id="" visibility="private">
+                <style class="default" />
+              </attribute>
+              <attribute id="ad9a8d6e57ff84fe98688cb45e8ca4905738" cid="ELEM008" name="PaidDate" type="" type-id="" visibility="private">
+                <style class="default" />
+              </attribute>
+            </attributes>
+          </item>
+          <item id="di637210382853648805" cid="DEP001" type="dependency" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="11/01/2016 20:45:34" from="di444327710704921719" to="di444327710704921719">
+            <stereotypes>
+              <stereotype name="use" />
+            </stereotypes>
+            <style class="default" />
           </item>
         </abstract-items>
-        <layer name="Default" visible="true" enabled="true" locked="false" />
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di444327710704921719" iid="9c57af003e52412999864f54fcd977fb" creation-date="11/01/2016 20:42:22" order-index="0" type="entity">
+            <layout ax="87" ay="122.5" awidth="140" aheight="48.5" x="87" y="122.5" width="140" height="48.5" />
+            <class />
+          </item>
+          <item id="di764922682613929835" iid="c972f7044477464a87f4c59fa21285b1" creation-date="11/01/2016 20:43:12" order-index="1" type="entity">
+            <layout ax="392" ay="74" awidth="172" aheight="160" x="392" y="74" width="172" height="160" />
+            <class />
+          </item>
+          <item id="di812043835533723305" iid="b6eb5d10a1a64955b6c152e4fa18c8da" creation-date="11/01/2016 20:44:29" order-index="2" type="entity">
+            <layout ax="747" ay="122.5" awidth="140" aheight="63" x="747" y="122.5" width="140" height="63" />
+            <class />
+          </item>
+        </layer>
       </diagram>
     </model>
   </models>
