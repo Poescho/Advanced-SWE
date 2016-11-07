@@ -22,7 +22,7 @@ public class Main extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Parkscheinausgabe parkscheinausgabe;
-    private Parkschein parkschein;
+    public static Parkschein parkschein;
 
 
 
@@ -70,6 +70,5 @@ public class Main extends AppCompatActivity {
     public void createParkschein(View view)
     {
       parkschein = parkscheinausgabe.createParkschein(view);
-        System.out.println(parkschein.date.toString());
     }
 }

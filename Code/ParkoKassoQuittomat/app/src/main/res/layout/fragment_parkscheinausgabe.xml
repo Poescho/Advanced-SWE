@@ -39,7 +39,8 @@
             android:background="@drawable/rectangle"
             android:layout_weight="0.61"
             android:padding="5dp"
-            android:id="@+id/parkschein">
+            android:id="@+id/parkschein"
+            android:visibility="invisible">
 
             <TextView
                 android:text="Parkschein"
@@ -116,8 +117,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_bearbeiten"
             android:layout_weight="0.03"
-            android:text="Bearbeiten" />
-
-    </LinearLayout>
+            android:text="Bearbeiten"
+            android:visibility="invisible"/>
+        </LinearLayout>
 
 </RelativeLayout>
