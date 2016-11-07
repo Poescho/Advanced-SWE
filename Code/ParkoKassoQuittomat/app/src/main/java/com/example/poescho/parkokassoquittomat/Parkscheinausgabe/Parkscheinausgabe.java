@@ -59,7 +59,7 @@ public class Parkscheinausgabe extends Fragment{
         txtUhrzeit.setText(time);
 
         TextView txtDatum = (TextView)getView().findViewById(R.id.txt_datum);
-        SimpleDateFormat localDateFormat = new SimpleDateFormat("dd.mm.yyyy");
+        SimpleDateFormat localDateFormat = new SimpleDateFormat("dd.MM.yyyy");
         String date = localDateFormat.format(parkschein.date);
         txtDatum.setText(date);
 
