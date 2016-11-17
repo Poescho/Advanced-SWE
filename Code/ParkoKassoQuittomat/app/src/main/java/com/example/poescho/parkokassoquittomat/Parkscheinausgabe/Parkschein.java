@@ -1,5 +1,7 @@
 package com.example.poescho.parkokassoquittomat.Parkscheinausgabe;
 
+import com.example.poescho.parkokassoquittomat.Helpers.Subject;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -9,7 +11,7 @@ import java.util.TimeZone;
  * Created by Poescho on 07.11.2016.
  */
 
-public class Parkschein {
+public class Parkschein extends Subject{
 
     private Calendar date;
     private int minute;
@@ -58,11 +60,13 @@ public class Parkschein {
     public void setYear(int year) {
         this.year = year;
     }
+
     public Calendar getDate() {
         return date;
     }
 
         public Parkschein() {
+
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
          this.date =  calendar;
             this.minute =  this.date.get(this.date.MINUTE);

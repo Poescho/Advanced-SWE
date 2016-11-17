@@ -73,7 +73,8 @@ public class Main extends AppCompatActivity {
     //onClick Method
     public void createParkschein(View view)
     {
-      parkschein = parkscheinausgabe.createParkschein(view);
+        parkschein = parkscheinausgabe.createParkschein(view);
+        parkschein.register(parkscheinausgabe);
     }
 
     public void showDatepicker(View view)

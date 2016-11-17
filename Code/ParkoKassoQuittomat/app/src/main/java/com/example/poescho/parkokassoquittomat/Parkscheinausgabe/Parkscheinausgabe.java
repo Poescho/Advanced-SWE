@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.poescho.parkokassoquittomat.Helpers.Observer;
 import com.example.poescho.parkokassoquittomat.Helpers.TimePickerFragment;
 import com.example.poescho.parkokassoquittomat.Main;
 import com.example.poescho.parkokassoquittomat.R;
@@ -22,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
 
-public class Parkscheinausgabe extends Fragment{
+public class Parkscheinausgabe extends Fragment implements Observer{
     private static final String ARG_EXAMPLE = "constant";
     private String example_data;
 
@@ -98,6 +99,9 @@ public class Parkscheinausgabe extends Fragment{
     }
 
 
-
+    @Override
+    public void update(Parkschein parkschein) {
+        setParkschein(parkschein);
+    }
 }
   

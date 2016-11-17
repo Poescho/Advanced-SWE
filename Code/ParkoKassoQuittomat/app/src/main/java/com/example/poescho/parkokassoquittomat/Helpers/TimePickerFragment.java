@@ -31,6 +31,7 @@ public class TimePickerFragment extends DialogFragment
         // Do something with the time chosen by the user
         Main.parkschein.setHour(hourOfDay);
         Main.parkschein.setMinute(minute);
+        Main.parkschein.notifyObservers(Main.parkschein);
 
 
     }
