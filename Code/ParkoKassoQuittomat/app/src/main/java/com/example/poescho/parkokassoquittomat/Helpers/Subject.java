@@ -20,7 +20,7 @@ public abstract class Subject {
         observerList.remove(newObserver);
     }
 
-    protected void notifyObservers(Parkschein parkschein){
+    public void notifyObservers(Parkschein parkschein){
         for (Observer observer : observerList) {
             observer.update(parkschein);
         }

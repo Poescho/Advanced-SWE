@@ -31,5 +31,6 @@ public class DatePickerFragment extends DialogFragment
         Main.parkschein.setDay(day);
         Main.parkschein.setMonth(month);
         Main.parkschein.setYear(year);
+        Main.parkschein.notifyObservers(Main.parkschein);
     }
 }
