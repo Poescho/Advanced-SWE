@@ -45,9 +45,7 @@ public class Main extends AppCompatActivity {
 
         activityContext = this.getApplicationContext();
 
-        parkschein = Parkschein.loadParkschein(activityContext);
-        if(parkschein != null)
-            parkschein.notifyObservers(parkschein);
+
 
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -69,6 +67,14 @@ public class Main extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(state);
         tabLayout.getTabAt(3).setIcon(quittung);
 
+
+        parkschein = Parkschein.loadParkschein(activityContext);
+
+        if(parkschein != null)
+        {
+            registerParkscheinObservers();
+        }
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -85,15 +91,23 @@ public class Main extends AppCompatActivity {
 
 
         viewPager.setAdapter(adapter);
+
+
+
     }
 
     //onClick Method
     public void createParkschein(View view)
     {
         parkschein = parkscheinausgabe.createParkschein(view);
+        registerParkscheinObservers();
+        parkschein.saveParkschein(activityContext);
+    }
+
+    public void registerParkscheinObservers()
+    {
         parkschein.register(parkscheinausgabe);
         parkschein.register(kassenautomat);
-        parkschein.saveParkschein(activityContext);
     }
 
     public void showDatepicker(View view)
