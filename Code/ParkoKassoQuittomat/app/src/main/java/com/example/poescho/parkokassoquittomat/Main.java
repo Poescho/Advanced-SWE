@@ -83,8 +83,7 @@ public class Main extends AppCompatActivity {
 
     public void showDatepicker(View view)
     {
-        DialogFragment newTimeFragment = new TimePickerFragment();
-        newTimeFragment.show(getFragmentManager(),"time");
+
 
         DialogFragment newDateFragment = new DatePickerFragment();
         newDateFragment.show(getFragmentManager(),"datePicker");

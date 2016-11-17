@@ -36,5 +36,8 @@ public class DatePickerFragment extends DialogFragment
         Main.parkschein.setMonth(month);
         Main.parkschein.setYear(year);
         Main.parkschein.notifyObservers(Main.parkschein);
+
+        DialogFragment newTimeFragment = new TimePickerFragment();
+        newTimeFragment.show(getFragmentManager(),"time");
  }
 }

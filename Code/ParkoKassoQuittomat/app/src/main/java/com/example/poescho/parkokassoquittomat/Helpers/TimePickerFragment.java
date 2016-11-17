@@ -26,8 +26,9 @@ public class TimePickerFragment extends DialogFragment
         int hour = Main.parkschein.getHour();
         int minute = Main.parkschein.getMinute();
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),  R.style.picker,this, hour, minute,
-                DateFormat.is24HourFormat(getActivity()));
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),  R.style.picker, this, hour, minute,
+                true);
+
         // Create a new instance of TimePickerDialog and return it
         return timePickerDialog;
     }

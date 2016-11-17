@@ -78,14 +78,16 @@ public class Parkscheinausgabe extends Fragment implements Observer{
     {
         View currentView = getView();
         TextView txtUhrzeit = (TextView)currentView.findViewById(R.id.txt_uhrzeit);
-        String time = String.valueOf(parkschein.getHour())
-        + ":" +String.valueOf(parkschein.getMinute());
+        String hour =  (parkschein.getHour() <= 9 ? "0":"") +String.valueOf(parkschein.getHour());
+        String minute = (parkschein.getMinute() <= 9 ? "0" : "") + String.valueOf(parkschein.getMinute());
+        String time = hour + ":" + minute;
         txtUhrzeit.setText(time);
 
         TextView txtDatum = (TextView)currentView.findViewById(R.id.txt_datum);
-        String date =String.valueOf(parkschein.getDay())
-                + "." +String.valueOf(parkschein.getMonth()+1)
-                + "." +String.valueOf(parkschein.getYear());
+        String day = (parkschein.getDay() <= 9 ? "0":"")+String.valueOf(parkschein.getDay());
+        String month = ((parkschein.getMonth()+1) <= 9 ? "0":"")+String.valueOf(parkschein.getMonth()+1);
+        String year = String.valueOf(parkschein.getYear());
+        String date = day  + "." + month + "." + year;
         txtDatum.setText(date);
 
         RelativeLayout parkscheinLayout = (RelativeLayout)currentView.findViewById(R.id.parkschein);
