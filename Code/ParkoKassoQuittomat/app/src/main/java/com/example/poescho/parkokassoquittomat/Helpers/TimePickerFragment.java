@@ -10,20 +10,26 @@ import android.widget.TimePicker;
 import com.example.poescho.parkokassoquittomat.Main;
 
 import com.example.poescho.parkokassoquittomat.Main;
+import com.example.poescho.parkokassoquittomat.R;
 
 public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the current time as the default values for the picker
 
         int hour = Main.parkschein.getHour();
         int minute = Main.parkschein.getMinute();
 
-        // Create a new instance of TimePickerDialog and return it
-        return new TimePickerDialog(getActivity(), this, hour, minute,
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),  R.style.picker,this, hour, minute,
                 DateFormat.is24HourFormat(getActivity()));
+        // Create a new instance of TimePickerDialog and return it
+        return timePickerDialog;
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {

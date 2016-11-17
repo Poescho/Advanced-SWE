@@ -26,6 +26,7 @@ public class Main extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Parkscheinausgabe parkscheinausgabe;
+    private Kassenautomat kassenautomat;
     public static Parkschein parkschein;
 
 
@@ -62,7 +63,9 @@ public class Main extends AppCompatActivity {
         parkscheinausgabe = Parkscheinausgabe.newInstance("this is data for the Parkscheinausgabe");
         adapter.addFragment(parkscheinausgabe,"Parkscheinausgabe");
 
-        adapter.addFragment(Kassenautomat.newInstance("this is data for the Kassenautomat"),"Kasse");
+        kassenautomat = Kassenautomat.newInstance("this is data for the Kassenautomat");
+        adapter.addFragment(kassenautomat,"Kasse");
+
         adapter.addFragment(Zustand.newInstance("this is data for the Zustand"),"Zustand");
         adapter.addFragment(Quittungsuebersicht.newInstance("this is data for the Quittungsuebersicht"),"Quittungen");
 
@@ -75,6 +78,7 @@ public class Main extends AppCompatActivity {
     {
         parkschein = parkscheinausgabe.createParkschein(view);
         parkschein.register(parkscheinausgabe);
+        parkschein.register(kassenautomat);
     }
 
     public void showDatepicker(View view)

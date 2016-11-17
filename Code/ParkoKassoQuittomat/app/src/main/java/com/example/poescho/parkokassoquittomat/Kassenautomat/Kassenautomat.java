@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.poescho.parkokassoquittomat.Helpers.Observer;
+import com.example.poescho.parkokassoquittomat.Parkscheinausgabe.Parkschein;
 import com.example.poescho.parkokassoquittomat.R;
 
 
-public class Kassenautomat extends Fragment {
+public class Kassenautomat extends Fragment implements Observer{
     private static final String ARG_EXAMPLE = "constant";
     private String example_data;
 
@@ -40,5 +42,12 @@ public class Kassenautomat extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_kassenautomat,container,false);
+    }
+
+    //Observer Method
+    @Override
+    public void update(Parkschein parkschein) {
+        System.out.println("Kassenautomat update");
+
     }
 }
