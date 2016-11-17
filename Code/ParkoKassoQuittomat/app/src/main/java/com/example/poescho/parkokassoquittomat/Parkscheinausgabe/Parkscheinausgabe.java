@@ -74,7 +74,7 @@ public class Parkscheinausgabe extends Fragment implements Observer{
 
 
 
-    private void setParkschein(Parkschein parkschein)
+    public void setParkschein(Parkschein parkschein)
     {
         View currentView = getView();
         TextView txtUhrzeit = (TextView)currentView.findViewById(R.id.txt_uhrzeit);

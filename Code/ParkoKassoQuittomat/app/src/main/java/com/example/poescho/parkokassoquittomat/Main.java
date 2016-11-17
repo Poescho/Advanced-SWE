@@ -2,6 +2,7 @@ package com.example.poescho.parkokassoquittomat;
 
 
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.provider.Settings;
@@ -21,20 +22,33 @@ import com.example.poescho.parkokassoquittomat.Parkscheinausgabe.Parkscheinausga
 import com.example.poescho.parkokassoquittomat.Quittungsuebersicht.Quittungsuebersicht;
 import com.example.poescho.parkokassoquittomat.Zustand.Zustand;
 
+import java.io.FileNotFoundException;
+
 
 public class Main extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Parkscheinausgabe parkscheinausgabe;
     private Kassenautomat kassenautomat;
+
+    private static Context activityContext;
     public static Parkschein parkschein;
 
 
-
+    public static Context getActivityContext() {
+        return activityContext;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        activityContext = this.getApplicationContext();
+
+        parkschein = Parkschein.loadParkschein(activityContext);
+        if(parkschein != null)
+            parkschein.notifyObservers(parkschein);
+
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -79,12 +93,11 @@ public class Main extends AppCompatActivity {
         parkschein = parkscheinausgabe.createParkschein(view);
         parkschein.register(parkscheinausgabe);
         parkschein.register(kassenautomat);
+        parkschein.saveParkschein(activityContext);
     }
 
     public void showDatepicker(View view)
     {
-
-
         DialogFragment newDateFragment = new DatePickerFragment();
         newDateFragment.show(getFragmentManager(),"datePicker");
     }

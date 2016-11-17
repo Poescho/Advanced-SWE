@@ -35,7 +35,10 @@ public class DatePickerFragment extends DialogFragment
         Main.parkschein.setDay(day);
         Main.parkschein.setMonth(month);
         Main.parkschein.setYear(year);
+
         Main.parkschein.notifyObservers(Main.parkschein);
+
+        Main.parkschein.saveParkschein(Main.getActivityContext());
 
         DialogFragment newTimeFragment = new TimePickerFragment();
         newTimeFragment.show(getFragmentManager(),"time");

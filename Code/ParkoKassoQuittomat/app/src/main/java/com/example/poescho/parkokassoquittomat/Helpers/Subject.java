@@ -22,6 +22,7 @@ public abstract class Subject {
 
     public void notifyObservers(Parkschein parkschein){
         for (Observer observer : observerList) {
+            System.out.println("notifyObservers");
             observer.update(parkschein);
         }
     }

@@ -40,6 +40,9 @@ public class TimePickerFragment extends DialogFragment
         Main.parkschein.setMinute(minute);
         Main.parkschein.notifyObservers(Main.parkschein);
 
+        Main.parkschein.saveParkschein(Main.getActivityContext());
+
+
 
     }
 }

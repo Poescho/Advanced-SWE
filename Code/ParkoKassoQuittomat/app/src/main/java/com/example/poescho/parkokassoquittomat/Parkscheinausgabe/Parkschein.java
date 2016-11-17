@@ -1,7 +1,16 @@
 package com.example.poescho.parkokassoquittomat.Parkscheinausgabe;
 
+import android.content.Context;
+
 import com.example.poescho.parkokassoquittomat.Helpers.Subject;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -11,7 +20,7 @@ import java.util.TimeZone;
  * Created by Poescho on 07.11.2016.
  */
 
-public class Parkschein extends Subject{
+public class Parkschein extends Subject implements Serializable{
 
     private Calendar date;
     private int minute;
@@ -20,6 +29,16 @@ public class Parkschein extends Subject{
     private int month;
     private int year;
 
+    public Parkschein() {
+
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        this.date =  calendar;
+        this.minute =  this.date.get(this.date.MINUTE);
+        this.hour =  this.date.get(this.date.HOUR_OF_DAY);
+        this.day =  this.date.get(this.date.DAY_OF_MONTH);
+        this.month =  this.date.get(this.date.MONTH);
+        this.year =  this.date.get(this.date.YEAR);
+    }
 
     public int getHour() {
         return hour;
@@ -65,14 +84,39 @@ public class Parkschein extends Subject{
         return date;
     }
 
-        public Parkschein() {
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-         this.date =  calendar;
-            this.minute =  this.date.get(this.date.MINUTE);
-            this.hour =  this.date.get(this.date.HOUR_OF_DAY);
-            this.day =  this.date.get(this.date.DAY_OF_MONTH);
-            this.month =  this.date.get(this.date.MONTH);
-            this.year =  this.date.get(this.date.YEAR);
+
+
+    public void saveParkschein(Context context)
+    {
+        try {
+        FileOutputStream fos = context.openFileOutput("Parkschein", Context.MODE_PRIVATE);
+        ObjectOutputStream os = new ObjectOutputStream(fos);
+         os.writeObject(this);
+         os.close();
+         fos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static Parkschein loadParkschein(Context context) {
+
+        Parkschein parkschein = null;
+
+        try {
+            FileInputStream fis = context.openFileInput("Parkschein");
+            ObjectInputStream is = new ObjectInputStream(fis);
+            parkschein = (Parkschein) is.readObject();
+            is.close();
+            fis.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return parkschein;
     }
 }
