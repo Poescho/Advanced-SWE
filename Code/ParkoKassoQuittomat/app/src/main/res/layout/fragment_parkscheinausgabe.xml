@@ -31,6 +31,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:onClick="createParkschein"/>
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -54,6 +55,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:fontFamily="sans-serif"
                 android:textColor="@android:color/black"
+                android:visibility="visible"
                 android:textSize="24sp" />
 
             <TextView
@@ -67,6 +69,7 @@
                 android:textSize="18sp"
                 android:layout_alignLeft="@+id/lbl_parksch"
                 android:layout_alignStart="@+id/lbl_parksch"
+                android:visibility="visible"
                 android:layout_below="@+id/lbl_parksch" />
 
             <TextView
@@ -78,6 +81,7 @@
                 android:fontFamily="sans-serif"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
+                android:visibility="visible"
                 android:layout_alignLeft="@+id/lbl_parksch"
                 android:layout_alignStart="@+id/lbl_parksch"
                 android:layout_below="@+id/txt_datum" />
@@ -91,6 +95,7 @@
                 android:fontFamily="sans-serif"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
+                android:visibility="visible"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_alignBaseline="@+id/lbl_uhrzeit"
@@ -107,18 +112,27 @@
                 android:fontFamily="sans-serif"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
+                android:visibility="visible"
                 android:layout_below="@+id/lbl_parksch"
                 android:layout_alignLeft="@+id/txt_uhrzeit"
                 android:layout_alignStart="@+id/txt_uhrzeit" />
+
         </RelativeLayout>
 
         <Button
+            android:text="Bearbeiten"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_bearbeiten"
-            android:layout_weight="0.03"
-            android:text="Bearbeiten"
-            android:visibility="invisible"/>
-        </LinearLayout>
+            android:id="@+id/btn_bearbeite"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/background_light"
+            android:layout_marginTop="5dp"
+            android:onClick="showDatepicker"/>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

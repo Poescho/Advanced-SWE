@@ -1,15 +1,19 @@
 package com.example.poescho.parkokassoquittomat;
 
 
+import android.app.DialogFragment;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.poescho.parkokassoquittomat.Helpers.DatePickerFragment;
+import com.example.poescho.parkokassoquittomat.Helpers.TimePickerFragment;
 import com.example.poescho.parkokassoquittomat.Helpers.ViewPagerAdapter;
 import com.example.poescho.parkokassoquittomat.Kassenautomat.Kassenautomat;
 import com.example.poescho.parkokassoquittomat.Parkscheinausgabe.Parkschein;
@@ -70,5 +74,14 @@ public class Main extends AppCompatActivity {
     public void createParkschein(View view)
     {
       parkschein = parkscheinausgabe.createParkschein(view);
+    }
+
+    public void showDatepicker(View view)
+    {
+        DialogFragment newTimeFragment = new TimePickerFragment();
+        newTimeFragment.show(getFragmentManager(),"time");
+
+        DialogFragment newDateFragment = new DatePickerFragment();
+        newDateFragment.show(getFragmentManager(),"datePicker");
     }
 }
