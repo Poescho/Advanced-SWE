@@ -1,0 +1,6 @@
+Neue Rolle des Mitarbeiters -> Automat auffüllen, Warten (Ticket/Münze bleibt hängen) -- Partly done
+Tool wie Trello -- Nothing done
+Pflichtenheft -- Done
+Für Android Studio plädieren -- Done
+Diagramme mit Standard vergleichen -- Nothing done
+Mitarbeiter "archivieren" (Flag in der DB setzen), anstatt sie zu löschen -> hauptsächlich wegen der Historie - nothing done

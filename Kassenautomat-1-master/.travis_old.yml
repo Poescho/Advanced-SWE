@@ -1,0 +1,38 @@
+branches:
+    only:
+        - master
+        - testTravis
+jdk: oraclejdk7
+
+
+notifications:
+   email: false
+   
+cache: false
+sudo: false
+language: android
+install:
+   - cd Kassenautomat_DHBW_AS/
+   - echo "y" | android update sdk --filter extra-android-support --no-ui --force --all
+   - echo "y" | android update sdk --filter extra-android-m2repository --no-ui --force --all
+   - ./gradlew build -i
+
+env:
+   matrix:
+      - ANDROID_TARGET=android-23
+android:
+  components:
+
+    # The BuildTools version used by your project
+    - build-tools-23.0.2
+
+    # The SDK version used to compile your project
+    - android-23
+
+    - extra
+    - tools
+    - platform-tools
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-23

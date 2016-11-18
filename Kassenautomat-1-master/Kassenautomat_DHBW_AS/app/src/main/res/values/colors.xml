@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7d8ce1</color>
+    <color name="colorPrimaryDark">#7d8ce1</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBackground">#C1C0C6</color>
+    <color name="automata_text_background">#6C6C6C</color>
+    <color name="automata_text_color">#2040FF</color>
+    <color name="automata_background">#8F8F8F</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="list_color">#afbaf2</color>
+</resources>

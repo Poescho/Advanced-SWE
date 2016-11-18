@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">KA</string>
+    <string name="payTicket">Ticket bezahlen:</string>
+    <string name="settings">Einstellungen</string>
+    <string name="money">Geld</string>
+    <string name="park_coins">Parkmünzen</string>
+    <string name="user">Benutzer</string>
+    <string name="valid">Valide</string>
+    <string name="paid">Bezahlt</string>
+    <string name="dummy">DUMMY</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="cancel_paying">Bezahlvorgang abbrechen</string>
+    <string name="maintain_machine">Automat warten</string>
+    <string name="image_content_description">Naja es ist halt en X und mehr nich. Warum schreib ich das überhaupt?</string>
+    <string name="take_ticket">Neues Ticket</string>
+    <string name="two_euro">Zwei Euro</string>
+    <string name="one_euro">Ein Euro</string>
+    <string name="fifty_cent">Fünfzig Cent</string>
+    <string name="twenty_cent">Zwanzig Cent</string>
+    <string name="ten_cent">Zehn Cent</string>
+    <string name="five_cent">Fünf Cent</string>
+    <string name="set_default">Als Standard speichern</string>
+    <string name="load_default">Auf Standard setzen</string>
+    <string name="base_price">Grundpreis</string>
+    <string name="price_per_five_minutes">Preis alle 5 Minuten</string>
+    <string name="base_price_hour">Grundpreis ab Stunde</string>
+    <string name="price_per_hour">Preis pro Stunde</string>
+    <string name="base_price_day">Grundpreis ab Tag</string>
+    <string name="price_per_day">Preis pro Tag</string>
+    <string name="reset_user">Benutzer zurücksetzen</string>
+    <string name="prices_are_euro">Alle Preise sind in Euro angegeben.</string>
+    <string name="park_ticket">Parkticket</string>
+    <string name="coins">Münzen</string>
+    <string name="hello">Hallo</string>
+    <string name="park_coin_stuck">Parkmünze steckt fest. Automat wird zurückgesetzt.</string>
+    <string name="ticket_paid">Ticket wurde bezahlt.</string>
+    <string name="fake_coin">Münze ist gefälscht!</string>
+    <string name="ticket_deleted">Ticket gelöscht.</string>
+    <string name="ticket_now_invalid">Ticket jetzt ungültig.</string>
+    <string name="ticket_was_already_paid">Ticket war schon bezahlt.</string>
+    <string name="ticket_was_not_valid">Ticket ist ungültig.</string>
+    <string name="ticket_taken">Ticket erhalten.</string>
+    <string name="no_more_park_coins">Parkmünzen sind alle</string>
+
+
+</resources>

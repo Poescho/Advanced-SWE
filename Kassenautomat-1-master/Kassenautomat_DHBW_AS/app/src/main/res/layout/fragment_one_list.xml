@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:background="#9e9a9a"
+    android:padding="15dp">
+    <ScrollView
+        android:id="@+id/fragment_one_list_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+        <ListView
+            android:id="@+id/fragment_one_list_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="@dimen/machine_text_size"
+            android:gravity="center"
+            android:background="@drawable/customer_border"/>
+    </ScrollView>
+</RelativeLayout>

@@ -7,5 +7,5 @@ import com.example.poescho.parkokassoquittomat.Parkscheinausgabe.Parkschein;
  */
 
 public interface Observer {
-    public void update(Parkschein parkschein);
+     void update(Parkschein parkschein);
 }
