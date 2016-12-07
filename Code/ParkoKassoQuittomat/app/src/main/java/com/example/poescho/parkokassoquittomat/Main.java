@@ -46,7 +46,6 @@ public class Main extends AppCompatActivity {
         activityContext = this.getApplicationContext();
 
 
-
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -114,5 +113,9 @@ public class Main extends AppCompatActivity {
     {
         DialogFragment newDateFragment = new DatePickerFragment();
         newDateFragment.show(getFragmentManager(),"datePicker");
+    }
+
+    public void enterParkschein(View view) {
+
     }
 }

@@ -10,27 +10,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="1"
+        android:padding="5dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:padding="5dp">
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="307dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_orange_light"
-            android:layout_margin="20dp">
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.1"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_margin="10dp"
+            android:background="@android:color/holo_orange_light">
 
             <Button
                 android:text=""
                 android:background="@drawable/button_get_ticket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:id="@+id/button8"
+                android:onClick="createParkschein"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:onClick="createParkschein"/>
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 
@@ -38,19 +39,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle"
-            android:layout_weight="0.61"
+            android:layout_weight="0.6"
             android:padding="5dp"
-            android:id="@+id/parkschein"
-            android:visibility="invisible">
+            android:id="@+id/parkschein">
 
             <TextView
                 android:text="Parkschein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="18dp"
-                android:layout_marginStart="18dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
                 android:id="@+id/lbl_parksch"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:fontFamily="sans-serif"
@@ -119,20 +117,23 @@
 
         </RelativeLayout>
 
-        <Button
-            android:text="Bearbeiten"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_bearbeite"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@android:color/background_light"
-            android:layout_marginTop="5dp"
-            android:onClick="showDatepicker"/>
+            android:layout_weight="0.3">
 
+            <Button
+                android:text="Bearbeiten"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_bearbeite"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@android:color/background_light"
+                android:layout_margin="5dp"
+                android:onClick="showDatepicker"/>
+        </LinearLayout>
     </LinearLayout>
-
 
 
 </RelativeLayout>
