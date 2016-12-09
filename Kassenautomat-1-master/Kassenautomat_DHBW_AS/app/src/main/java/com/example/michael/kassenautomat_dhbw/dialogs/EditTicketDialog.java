@@ -83,7 +83,7 @@ public class EditTicketDialog extends DialogFragment {
         timePicker.setCurrentMinute(cal.get(Calendar.MINUTE));
 
 
-        dateText.setText(day+"."+month+"."+year);
+        dateText.setText(beautifyDateToString(day)+"."+beautifyDateToString(month)+"."+year);
 
         dateText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,12 +93,12 @@ public class EditTicketDialog extends DialogFragment {
                             @Override
                             public void onDateSet(DatePicker view, int pYear, int pMonthOfYear, int pDayOfMonth) {
                                 year = pYear;
-                                month = pMonthOfYear + 1;
+                                month = pMonthOfYear+1;
                                 day = pDayOfMonth;
-                                dateText.setText(day+"."+month+"."+year);
+                                dateText.setText(beautifyDateToString(day)+"."+beautifyDateToString(month)+"."+year);
                             }
                         },year,month,day);
-                dialog.updateDate(year, month, day);
+                dialog.updateDate(year, month-1, day);
                 dialog.show();
             }
         });
@@ -131,8 +131,8 @@ public class EditTicketDialog extends DialogFragment {
                 String strYear = year + "";
                 String strMonth = month < 10 ? "0" + month : month + "";
                 String strDay = day < 10 ? "0" + day : day + "";
-                String strHours = (timePicker.getCurrentHour() < 10) ? "0" + timePicker.getCurrentHour() : timePicker.getCurrentHour() + "";
-                String strMinutes = (timePicker.getCurrentMinute() < 10) ? "0" + timePicker.getCurrentMinute() : timePicker.getCurrentMinute() + "";
+                String strHours = beautifyDateToString(timePicker.getCurrentHour());
+                String strMinutes = beautifyDateToString(timePicker.getCurrentMinute());
 
                 String newDate = strYear + "/" + strMonth + "/" + strDay + "/" + strHours + "/" + strMinutes;
                 System.out.println(newDate);
@@ -173,6 +173,11 @@ public class EditTicketDialog extends DialogFragment {
         return builder.create();
     }
 
+   String beautifyDateToString (int date)
+   {
+       String beautifiedDate = date < 10 ? "0" + date : date + "";
+       return beautifiedDate;
+   }
     @Override
     public void show(FragmentManager manager, String tag) {
         super.show(manager, tag);
