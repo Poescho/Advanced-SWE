@@ -45,7 +45,10 @@ public class KassenautomatContext {
 
 
             try {
-                if (prefs.getLong(VERSIONS_PREFS_KEY, 0) >= VERSION_PREFS && prefs.getInt(MySQLiteOpenHelper.SHARED_PREFS_DB_VERSION, 0) >= MySQLiteOpenHelper.DATABASE_VERSION) {
+                System.out.println("LOGGING: VERSION_PREFS_KEY: " + String.valueOf(prefs.getLong(VERSIONS_PREFS_KEY, 0)));
+                System.out.println("LOGGING: SHARED_PREFS_DB_VERSION: " + String.valueOf(prefs.getInt(MySQLiteOpenHelper.SHARED_PREFS_DB_VERSION, 0)));
+
+                if (prefs.getLong(VERSIONS_PREFS_KEY, 0) >= VERSION_PREFS) {
                     this.automata = databaseConnection.getAutomata();
                     this.currentUser = databaseConnection.getUser();
                 } else {

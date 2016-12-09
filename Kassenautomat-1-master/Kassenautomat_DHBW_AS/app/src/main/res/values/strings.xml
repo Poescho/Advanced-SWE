@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KA</string>
+    <string name="app_name">Parkomat</string>
     <string name="payTicket">Ticket bezahlen:</string>
     <string name="settings">Einstellungen</string>
     <string name="money">Geld</string>
