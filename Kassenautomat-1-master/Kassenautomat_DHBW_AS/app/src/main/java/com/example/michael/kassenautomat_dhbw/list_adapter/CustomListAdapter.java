@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -52,6 +53,7 @@ public class CustomListAdapter extends MyAdapter<Ticket> {
 
         //Click listener for pay button and background.
         View.OnClickListener payClickListener = new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
@@ -59,7 +61,7 @@ public class CustomListAdapter extends MyAdapter<Ticket> {
                     mCallback.setTextOfDisplay(R.string.no_more_park_coins);
                     return;
                 }
-
+                System.out.println("Bezahlen");
                 mCallback.startPayment(getItem(position));
             }
         };

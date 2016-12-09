@@ -2,6 +2,8 @@ package com.example.michael.kassenautomat_dhbw.fragments.one;
 
 import android.content.ClipDescription;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.example.michael.kassenautomat_dhbw.datatypes.Ticket;
 import com.example.michael.kassenautomat_dhbw.datatypes.User;
 import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
 import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
+import com.example.michael.kassenautomat_dhbw.fragments.three.FragmentThreeUserInformation;
+import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentTwoShowTicketList;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
 
 import java.util.Date;
@@ -41,6 +45,8 @@ public class FragmentOneShowAutomata extends MyFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
+
+
 
         view = inflater.inflate(R.layout.fragment_one_automata, container, false);
 

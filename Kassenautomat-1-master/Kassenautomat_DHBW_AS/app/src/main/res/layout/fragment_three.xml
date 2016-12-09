@@ -6,25 +6,25 @@
     android:background="@color/colorPrimary">
 
     <Button
-        android:id="@+id/fragment_three_show_park_coins"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/park_coins"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"/>
-
-    <Button
         android:id="@+id/fragment_three_show_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/money"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="22dp"
         android:background="@color/colorPrimary"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/fragment_three_show_park_coins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/park_coins"
+        android:layout_marginStart="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

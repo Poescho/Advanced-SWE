@@ -22,7 +22,7 @@ public class FragmentThreeUserInformation extends MyFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-
+        System.out.println("onCreateView");
         view = inflater.inflate(R.layout.fragment_three, container, false);
         showTickets = (Button) view.findViewById(R.id.fragment_three_show_park_coins);
         showMoney = (Button) view.findViewById(R.id.fragment_three_show_money);

@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.michael.kassenautomat_dhbw.R;
-import com.example.michael.kassenautomat_dhbw.dialogs.MaintainDialog;
+import com.example.michael.kassenautomat_dhbw.fragments.maintain.MaintainFragment;
 import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
-import com.example.michael.kassenautomat_dhbw.dialogs.SettingsDialog;
+import com.example.michael.kassenautomat_dhbw.fragments.settings.SettingsDialog;
 
 /**
  * Created by administrator on 03.05.16.
  */
-public class FragmentToolbarDefault extends MyFragment {
+/*public class FragmentToolbarDefault extends MyFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class FragmentToolbarDefault extends MyFragment {
         btnMaintain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MaintainDialog dialog = new MaintainDialog();
+                MaintainFragment dialog = new MaintainFragment();
                 dialog.setmCallback(mCallback);
                 dialog.show(mCallback.getKassenautomatContext().getFragmentManager(), "Maintain dialog");
             }
@@ -46,4 +46,4 @@ public class FragmentToolbarDefault extends MyFragment {
         return view;
     }
 
-}
+}*/

@@ -34,12 +34,11 @@ public class FragmentTwoShowTicketList extends MyFragment {
 
         list = (ListView) view.findViewById(R.id.list);
         list.setAdapter(customListAdapter);
-
         return view;
     }
 
     public void updateTicketList() {
-        List<Ticket> allTickets = mCallback.getKassenautomatContext().getDatabaseConnection().getTicketsFromUser(mCallback.getKassenautomatContext().getCurrentUser().getId());
+       List<Ticket> allTickets = mCallback.getKassenautomatContext().getDatabaseConnection().getTicketsFromUser(mCallback.getKassenautomatContext().getCurrentUser().getId());
         customListAdapter.clear();
         customListAdapter.addAll(allTickets);
     }

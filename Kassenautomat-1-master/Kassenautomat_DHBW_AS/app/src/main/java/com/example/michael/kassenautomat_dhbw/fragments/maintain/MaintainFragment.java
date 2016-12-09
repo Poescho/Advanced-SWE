@@ -1,4 +1,4 @@
-package com.example.michael.kassenautomat_dhbw.dialogs;
+package com.example.michael.kassenautomat_dhbw.fragments.maintain;
 
 
 import android.app.Dialog;
@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -18,18 +19,28 @@ import android.widget.TextView;
 import com.example.michael.kassenautomat_dhbw.R;
 import com.example.michael.kassenautomat_dhbw.datatypes.Automata;
 import com.example.michael.kassenautomat_dhbw.datatypes.Money;
+import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
+import com.example.michael.kassenautomat_dhbw.dialogs.TextDialog;
 import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
+import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
 
 /**
  * Created by Michael on 20.05.2016.
  */
-public class MaintainDialog extends TextDialog {
+public class MaintainFragment extends MyFragment {
 
+    public KassenautomatContext kassenautomatContext;
+    public static MaintainFragment newInstance(KassenautomatContext kassenautomatContext)
+    {
+        MaintainFragment maintainFragment = new MaintainFragment();
+        maintainFragment.kassenautomatContext = kassenautomatContext;
+        return maintainFragment;
+    }
 
-    @Override
     @NonNull
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         View view = layoutInflater.inflate(R.layout.dialog_maintain, null);
 
@@ -98,7 +109,7 @@ public class MaintainDialog extends TextDialog {
                     e.printStackTrace();
                 }
 
-                dismiss();
+               // dismiss();
             }
         });
 
@@ -140,14 +151,14 @@ public class MaintainDialog extends TextDialog {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss();
+              //  dismiss();
             }
         });
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setView(view);
+      /*  AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setView(view);*/
 
-        return builder.create();
+        return view;
     }
 
 

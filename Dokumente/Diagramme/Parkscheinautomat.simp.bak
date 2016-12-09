@@ -142,8 +142,12 @@
         <value>2</value>
       </counter>
       <counter>
-        <item-type type-id="" type="AbstractElementGroup" />
-        <value>11</value>
+        <item-type type-id="comment-connector" type="UmlCommentConnector" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="relationship" type="UmlAssociation" />
+        <value>6</value>
       </counter>
     </entity-ids>
     <diagrams>
@@ -213,7 +217,7 @@
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-usecase" id="p847400977826468940" name="UseCaseDiagram1" order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="143,24">
+      <diagram type="uml-usecase" id="p847400977826468940" name="UseCaseDiagram1" order-index="1" show-id="false" show-name="true" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="0,52">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -225,7 +229,7 @@
           </authors>
           <description />
           <creation-date>10/12/2016 13:12:53</creation-date>
-          <change-date>10/19/2016 12:41:32</change-date>
+          <change-date>12/03/2016 19:18:42</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
@@ -297,13 +301,26 @@
           <item id="di629354138666300357" cid="ELEM005" type="universal-connector" name="" style-class="" visibility="package" creator="P4eff555dd10a445d9af4455755848fd4" creation-date="10/12/2016 13:43:19" from="di831687088812591976" to="di618043329896067114">
             <style class="default" />
           </item>
+          <item id="di377922367576515602" cid="UC001" type="use-case" name="Vornehmen der Konfiguration des Kassenautomatens" style-class="" owner="di938736943732327205" visibility="package" creator="P4eff555dd10a445d9af4455755848fd4" creation-date="10/12/2016 13:13:16">
+            <style class="default" />
+            <use-case>
+              <stakeholders />
+            </use-case>
+          </item>
+          <item id="di454790179263706231" cid="REL004" type="relationship" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="12/03/2016 19:18:31" from="di377922367576515602" to="di831687088812591976">
+            <style class="default" />
+            <relation from="di377922367576515602" to="di831687088812591976">
+              <start-role id="" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
         </abstract-items>
         <layer name="Default" visible="true" enabled="true" locked="false">
           <item id="di831687088812591976" iid="a26f19c1cdbf480f846aece7cef101e6" creation-date="10/12/2016 13:13:01" order-index="0" type="entity">
             <layout ax="108" ay="171" awidth="50" aheight="100" x="108" y="171" width="50" height="100" name-position="0,10" name-anchor="bottom" />
           </item>
           <item id="di938736943732327205" iid="e795ec2b58834952b9509a9c8c2d7fb4" creation-date="10/12/2016 13:14:20" order-index="2" type="entity">
-            <layout ax="255" ay="51" awidth="636" aheight="502" x="255" y="51" width="636" height="502" />
+            <layout ax="255" ay="51" awidth="636" aheight="612" x="255" y="51" width="636" height="612" />
           </item>
           <item id="di267588048220663175" iid="42a86e41d5854b4bb400f3ebf03d6266" creation-date="10/12/2016 13:15:51" order-index="3" type="relation">
             <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="158" y1="217" x2="360" y2="139" start-border-pos="0.365" end-border-pos="0.848333333333333" name-position="10,-10">
@@ -382,6 +399,19 @@
               </points>
             </layout>
             <relation from="di831687088812591976" from-iid="a26f19c1cdbf480f846aece7cef101e6" to="di618043329896067114" to-iid="fff3ca656d2f4a7ebf2d9691fd5ae053" />
+          </item>
+          <item id="di377922367576515602" iid="a86eb73f9c174071af064046df4995c4" container="di938736943732327205" container-iid="e795ec2b58834952b9509a9c8c2d7fb4" creation-date="10/12/2016 13:13:16" order-index="1" type="entity">
+            <layout ax="349" ay="550.0132" awidth="159" aheight="99" x="349" y="550.0132" width="159" height="99" />
+            <use-case />
+          </item>
+          <item id="di454790179263706231" iid="9295edff62d04368846edc9249897d03" creation-date="12/03/2016 19:18:31" order-index="10" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="349" y1="599" x2="157" y2="306.8758" start-border-pos="0.876295918166035" end-border-pos="0.585" name-position="0,0">
+              <points>
+                <point x="349" y="599" />
+                <point x="157" y="306.8758" />
+              </points>
+            </layout>
+            <relation from="di377922367576515602" from-iid="a86eb73f9c174071af064046df4995c4" />
           </item>
         </layer>
       </diagram>
