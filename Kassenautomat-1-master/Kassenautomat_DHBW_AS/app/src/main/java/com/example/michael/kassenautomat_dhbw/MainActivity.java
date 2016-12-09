@@ -143,8 +143,6 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
 
     @Override
     public void returnToTicketList() {
-        DEBUG_VARIABLE++;
-        System.out.println("returnToTicketList");
         FragmentManager fragmentManager = kassenautomat.getKassenautomatFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 

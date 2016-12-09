@@ -83,8 +83,8 @@ public class CustomListAdapter extends MyAdapter<Ticket> {
         }
 
 
-        txtShowID.setText("ID:" + getItem(position).getId() + "");
-        txtShowDate.setText("Datum:" + date);
+        txtShowID.setText("ID: " + getItem(position).getId() + "");
+        txtShowDate.setText("Datum: " + date);
         txtShowInfo.setText("Status: " + valid + " / " + paid);
 
 

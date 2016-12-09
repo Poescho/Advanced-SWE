@@ -59,7 +59,10 @@ public class EditTicketDialog extends DialogFragment {
         Button cancleButton = (Button) view.findViewById(R.id.dialog_edit_ticket_button_cancel);
 
         Bundle bundle = getArguments();
+
         long id = bundle.getLong(DIALOG_BUNDLE_ID);
+
+
 
         try {
             this.ticket = mCallback.getKassenautomatContext().getDatabaseConnection().getTicket(id);
@@ -72,8 +75,14 @@ public class EditTicketDialog extends DialogFragment {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         year = cal.get(Calendar.YEAR);
-        month = cal.get(Calendar.MONTH);
+        month = cal.get(Calendar.MONTH)+1;
         day = cal.get(Calendar.DAY_OF_MONTH);
+
+        timePicker.setIs24HourView(true);
+        timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
+        timePicker.setCurrentMinute(cal.get(Calendar.MINUTE));
+
+
         dateText.setText(day+"."+month+"."+year);
 
         dateText.setOnClickListener(new View.OnClickListener() {
