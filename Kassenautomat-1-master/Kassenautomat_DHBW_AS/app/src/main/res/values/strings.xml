@@ -9,6 +9,7 @@
     <string name="paid">Bezahlt</string>
     <string name="dummy">DUMMY</string>
     <string name="ok">OK</string>
+    <string name="uebernehmen">EINSTELLUNGEN ÜBERNEHMEN</string>
     <string name="cancel">Abbrechen</string>
     <string name="cancel_paying">Bezahlvorgang abbrechen</string>
     <string name="maintain_machine">Automat warten</string>

@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
         Resources res = getResources();
 
         Drawable parking = res.getDrawable(R.drawable.ic_parking);
-       Drawable state = res.getDrawable(R.drawable.ic_state);
-        Drawable quittung = res.getDrawable(R.drawable.ic_quittung);
+       Drawable state = res.getDrawable(R.drawable.ic_quittung);
+        Drawable quittung = res.getDrawable(R.drawable.ic_state);
 
 
        tabLayout.getTabAt(0).setIcon(parking);

@@ -28,12 +28,11 @@
             android:layout_gravity="center_vertical"
             android:max="999" />
 
-        <EditText
+        <TextView
             android:id="@+id/dialog_maintain_two_euro_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="number"
             android:maxLength="3"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
@@ -59,12 +58,11 @@
             android:layout_gravity="center_vertical"
             android:max="999" />
 
-        <EditText
+        <TextView
             android:id="@+id/dialog_maintain_one_euro_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="number"
             android:maxLength="3"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
@@ -90,12 +88,11 @@
             android:layout_gravity="center_vertical"
             android:max="999" />
 
-        <EditText
+        <TextView
             android:id="@+id/dialog_maintain_fifty_cent_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="number"
             android:maxLength="3"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
@@ -121,12 +118,11 @@
             android:layout_gravity="center_vertical"
             android:max="999" />
 
-        <EditText
+        <TextView
             android:id="@+id/dialog_maintain_twenty_cent_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="number"
             android:maxLength="3"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
@@ -152,12 +148,11 @@
             android:layout_gravity="center_vertical"
             android:max="999" />
 
-        <EditText
+        <TextView
             android:id="@+id/dialog_maintain_ten_cent_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="number"
             android:maxLength="3"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
@@ -183,12 +178,11 @@
             android:layout_gravity="center_vertical"
             android:max="999" />
 
-        <EditText
+        <TextView
             android:id="@+id/dialog_maintain_five_cent_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="number"
             android:maxLength="3"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
@@ -213,12 +207,11 @@
             android:layout_gravity="center_vertical"
             android:max="999" />
 
-        <EditText
+        <TextView
             android:id="@+id/dialog_maintain_park_coins_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="number"
             android:maxLength="3"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
@@ -238,59 +231,23 @@
         android:layout_gravity="center_horizontal|center_vertical"/>
 
 
+    <Button
+        android:id="@+id/dialog_maintain_ok"
+        android:text="@string/uebernehmen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_dialog_edit_row_spacer" />
+
     <android.support.v4.widget.Space
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height_dialog_edit_row_spacer" />
     <android.support.v4.widget.Space
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height_dialog_edit_row_spacer" />
-    <android.support.v4.widget.Space
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/height_dialog_edit_row_spacer" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <Button
-            android:id="@+id/dialog_maintain_ok"
-            android:text="@string/ok"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"/>
-
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"/>
-
-        <Button
-            android:id="@+id/dialog_maintain_cancel"
-            android:text="@string/cancel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"/>
-
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-
-
-
-
-
-
 
 
 </LinearLayout>

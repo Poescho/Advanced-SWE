@@ -36,7 +36,6 @@ public class FragmentSettings extends MyFragment {
         View view = layoutInflater.inflate(R.layout.dialog_settings, null);
 
         Button btnOk = (Button)view.findViewById(R.id.dialog_settings_ok);
-        Button btnCancel = (Button)view.findViewById(R.id.dialog_settings_cancel);
         Button btnResetUser = (Button)view.findViewById(R.id.dialog_settings_reset_user);
 
         final EditText etBasePrice = (EditText)view.findViewById(R.id.dialog_settings_base_price_edit_text);
@@ -61,6 +60,9 @@ public class FragmentSettings extends MyFragment {
             public void onClick(View v) {
                 try {
                     kassenautomatContext.resetUser();
+                    TextDialog dialog = new TextDialog();
+                    dialog.setArguments(TextDialog.getBundle("Ihr Benutzer wurde zurückgesetzt!"));
+                    dialog.show(mCallback.getKassenautomatContext().getFragmentManager(), "Reset User");
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
@@ -116,15 +118,10 @@ public class FragmentSettings extends MyFragment {
                 DefaultValuesHandler.setBasePriceDay(kassenautomatContext, basePriceDay);
                 DefaultValuesHandler.setPricePerDay(kassenautomatContext, pricePerDay);
 
+                TextDialog dialog = new TextDialog();
+                dialog.setArguments(TextDialog.getBundle("Ihre Einstellungen wurden übernommen!"));
+                dialog.show(mCallback.getKassenautomatContext().getFragmentManager(), "Show confirmation settings");
                 //dismiss();
-            }
-        });
-
-
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // dismiss();
             }
         });
 

@@ -18,6 +18,7 @@ import com.example.michael.kassenautomat_dhbw.R;
 import com.example.michael.kassenautomat_dhbw.datatypes.Automata;
 import com.example.michael.kassenautomat_dhbw.datatypes.Money;
 import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
+import com.example.michael.kassenautomat_dhbw.dialogs.TextDialog;
 import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
 import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
@@ -52,25 +53,24 @@ public class FragmentMaintain extends MyFragment {
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         View view = layoutInflater.inflate(R.layout.dialog_maintain, null);
 
-        Button btnCancel = (Button)view.findViewById(R.id.dialog_maintain_cancel);
         Button btnSetDefault = (Button)view.findViewById(R.id.dialog_maintain_set_default);
         Button btnLoadDefault = (Button)view.findViewById(R.id.dialog_maintain_load_default);
         Button btnOk = (Button)view.findViewById(R.id.dialog_maintain_ok);
 
         sbTwoEuro = (SeekBar)view.findViewById(R.id.dialog_maintain_two_euro_seek_bar);
-        final EditText etTwoEuro = (EditText)view.findViewById(R.id.dialog_maintain_two_euro_edit_text);
+        final TextView etTwoEuro = (TextView)view.findViewById(R.id.dialog_maintain_two_euro_edit_text);
         sbOneEuro = (SeekBar)view.findViewById(R.id.dialog_maintain_one_euro_seek_bar);
-        final EditText etOneEuro = (EditText)view.findViewById(R.id.dialog_maintain_one_euro_edit_text);
+        final TextView etOneEuro = (TextView)view.findViewById(R.id.dialog_maintain_one_euro_edit_text);
         sbFiftyCent = (SeekBar)view.findViewById(R.id.dialog_maintain_fifty_cent_seek_bar);
-        final EditText etFiftyCent = (EditText)view.findViewById(R.id.dialog_maintain_fifty_cent_edit_text);
+        final TextView etFiftyCent = (TextView)view.findViewById(R.id.dialog_maintain_fifty_cent_edit_text);
         sbTwentyCent = (SeekBar)view.findViewById(R.id.dialog_maintain_twenty_cent_seek_bar);
-        final EditText etTwentyCent = (EditText)view.findViewById(R.id.dialog_maintain_twenty_cent_edit_text);
+        final TextView etTwentyCent = (TextView)view.findViewById(R.id.dialog_maintain_twenty_cent_edit_text);
         sbTenCent = (SeekBar)view.findViewById(R.id.dialog_maintain_ten_cent_seek_bar);
-        final EditText etTenCent = (EditText)view.findViewById(R.id.dialog_maintain_ten_cent_edit_text);
+        final TextView etTenCent = (TextView)view.findViewById(R.id.dialog_maintain_ten_cent_edit_text);
         sbFiveCent = (SeekBar)view.findViewById(R.id.dialog_maintain_five_cent_seek_bar);
-        final EditText etFiveCent = (EditText)view.findViewById(R.id.dialog_maintain_five_cent_edit_text);
+        final TextView etFiveCent = (TextView)view.findViewById(R.id.dialog_maintain_five_cent_edit_text);
         sbParkCoins = (SeekBar)view.findViewById(R.id.dialog_maintain_park_coins_seek_bar);
-        final EditText etParkCoins = (EditText)view.findViewById(R.id.dialog_maintain_park_coins_edit_text);
+        final TextView etParkCoins = (TextView)view.findViewById(R.id.dialog_maintain_park_coins_edit_text);
 
 
 
@@ -109,6 +109,9 @@ public class FragmentMaintain extends MyFragment {
                     e.printStackTrace();
                 }
 
+                TextDialog dialog = new TextDialog();
+                dialog.setArguments(TextDialog.getBundle("Ihre Einstellungen wurden übernommen!"));
+                dialog.show(mCallback.getKassenautomatContext().getFragmentManager(), "Show confirmation maintain");
                // dismiss();
             }
         });
@@ -128,6 +131,13 @@ public class FragmentMaintain extends MyFragment {
 
                 DefaultValuesHandler.setDefaultMoney(mCallback.getKassenautomatContext(), tempMoney);
                 DefaultValuesHandler.setDefaultParkCoins(mCallback.getKassenautomatContext(), sbParkCoins.getProgress());
+
+                TextDialog dialog = new TextDialog();
+                dialog.setArguments(TextDialog.getBundle("Ihre Einstellungen wurden als Standard übernommen!"));
+                dialog.show(mCallback.getKassenautomatContext().getFragmentManager(), "Set default settings");
+
+
+
             }
         });
 
@@ -144,14 +154,10 @@ public class FragmentMaintain extends MyFragment {
                 sbTenCent.setProgress(defaultMoney.getTenCent());
                 sbFiveCent.setProgress(defaultMoney.getFiveCent());
                 sbParkCoins.setProgress(DefaultValuesHandler.getDefaultParkCoins(mCallback.getKassenautomatContext()));
-            }
-        });
 
-
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              //  dismiss();
+                TextDialog dialog = new TextDialog();
+                dialog.setArguments(TextDialog.getBundle("Ihre Einstellungen wurden zurückgesetzt!"));
+                dialog.show(mCallback.getKassenautomatContext().getFragmentManager(), "Show default settings");
             }
         });
 
@@ -190,7 +196,7 @@ public class FragmentMaintain extends MyFragment {
     }
 
 
-    private void bindSeekBarValueAndEditTextInput(final SeekBar sb, final EditText et) {
+    private void bindSeekBarValueAndEditTextInput(final SeekBar sb, final TextView et) {
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

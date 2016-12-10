@@ -36,7 +36,6 @@ public class FragmentKassenautomat extends MyFragment  {
         super.onCreate(savedInstanceState);
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         {
-            System.out.println("onCreate: Kassenautomat");
             transaction.add(R.id.kassen_main_container_one, this.fragmentAutomat);
             transaction.add(R.id.kassen_main_container_two, this.fragmentTicketList);
             transaction.add(R.id.kasseny_main_container_three, this.fragmentUserInformation);
