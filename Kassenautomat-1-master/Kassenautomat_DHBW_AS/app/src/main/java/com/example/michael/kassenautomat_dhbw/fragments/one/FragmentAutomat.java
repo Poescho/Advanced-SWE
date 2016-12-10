@@ -16,6 +16,7 @@ import com.example.michael.kassenautomat_dhbw.datatypes.Money;
 import com.example.michael.kassenautomat_dhbw.datatypes.Ticket;
 import com.example.michael.kassenautomat_dhbw.datatypes.User;
 import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
+import com.example.michael.kassenautomat_dhbw.dialogs.TextDialog;
 import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
 import com.example.michael.kassenautomat_dhbw.fragments.maintain.FragmentMaintain;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
@@ -288,20 +289,22 @@ public class FragmentAutomat extends MyFragment {
         this.ticketToPay = ticketToPay;
 
         if(ticketToPay != null) {
-            long milliSeconds = System.currentTimeMillis() - ticketToPay.getTimestamp();
-            long seconds = milliSeconds / 1000;
-            long minutes = seconds / 60;
-            long hours = minutes / 60;
-            long days = hours / 24;
+          long milliSeconds = System.currentTimeMillis() - ticketToPay.getTimestamp();
+                long seconds = milliSeconds / 1000;
+                long minutes = seconds / 60;
+                long hours = minutes / 60;
+                long days = hours / 24;
 
 
-            centsToPay = (int) getCentPriceForDuration(minutes, hours, days);
-            if (centsToPay < 0) {
-                centsToPay = 0;
+                centsToPay = (int) getCentPriceForDuration(minutes, hours, days);
+                if (centsToPay < 0) {
+                    centsToPay = 0;
+                }
+
+                refreshOutput();
             }
 
-            refreshOutput();
-        }
+
     }
 
     public int getCentsToPay() {

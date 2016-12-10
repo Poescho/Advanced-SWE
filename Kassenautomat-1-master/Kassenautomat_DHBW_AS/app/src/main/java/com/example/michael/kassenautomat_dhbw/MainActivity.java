@@ -194,17 +194,22 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
             fragmentAutomat.setTextOfDisplay(R.string.ticket_was_already_paid);
         } else {
             if (ticket.isValid()) {
-                fragmentAutomat.setTicketToPay(ticket);
+                if (ticket.getTimestamp() <= System.currentTimeMillis()) {
+                    fragmentAutomat.setTicketToPay(ticket);
 
-                FragmentManager fragmentManager = kassenautomat.getKassenautomatFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    FragmentManager fragmentManager = kassenautomat.getKassenautomatFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                {
-                   fragmentTransaction.replace(R.id.kassen_main_container_two, fragmentCoinList);
+                    {
+                        fragmentTransaction.replace(R.id.kassen_main_container_two, fragmentCoinList);
+                    }
+
+                    fragmentTransaction.commit();
+                } else {
+                    fragmentAutomat.setTextOfDisplay(R.string.ticketDate_was_not_valid);
                 }
-
-                fragmentTransaction.commit();
-            } else {
+            }
+            else{
                 fragmentAutomat.setTextOfDisplay(R.string.ticket_was_not_valid);
             }
         }

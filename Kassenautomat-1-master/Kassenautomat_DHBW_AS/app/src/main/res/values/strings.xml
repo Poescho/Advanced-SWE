@@ -41,6 +41,7 @@
     <string name="ticket_now_invalid">Ticket jetzt ungültig.</string>
     <string name="ticket_was_already_paid">Ticket wurde bereits bezahlt.</string>
     <string name="ticket_was_not_valid">Ticket ist ungültig.</string>
+    <string name="ticketDate_was_not_valid">Datum des Tickets ist ungültig.</string>
     <string name="ticket_taken">Ticket wurde ausgegeben.</string>
     <string name="no_more_park_coins">Keine Parkmünzen vorhanden.</string>
 
