@@ -4,7 +4,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -13,13 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.michael.kassenautomat_dhbw.datatypes.Ticket;
-import com.example.michael.kassenautomat_dhbw.fragments.mainKassenautomat.Fragment_Kassenautomat;
-import com.example.michael.kassenautomat_dhbw.fragments.maintain.MaintainFragment;
-import com.example.michael.kassenautomat_dhbw.fragments.one.FragmentOneShowAutomata;
-import com.example.michael.kassenautomat_dhbw.fragments.settings.SettingsDialog;
-import com.example.michael.kassenautomat_dhbw.fragments.three.FragmentThreeUserInformation;
-import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentTwoCoinsList;
-import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentTwoShowTicketList;
+import com.example.michael.kassenautomat_dhbw.fragments.mainKassenautomat.FragmentKassenautomat;
+import com.example.michael.kassenautomat_dhbw.fragments.maintain.FragmentMaintain;
+import com.example.michael.kassenautomat_dhbw.fragments.one.FragmentAutomat;
+import com.example.michael.kassenautomat_dhbw.fragments.settings.FragmentSettings;
+import com.example.michael.kassenautomat_dhbw.fragments.three.FragmentUserInformation;
+import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentCoinList;
+import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentTicketList;
 import com.example.michael.kassenautomat_dhbw.helpers.ViewPagerAdapter;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
 import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
@@ -33,13 +32,13 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
     private Long lastPaidTicketId = null;
 
    // private FragmentToolbarDefault fragmentToolbarDefault = new FragmentToolbarDefault();
-   private FragmentOneShowAutomata fragmentOneShowAutomata = new FragmentOneShowAutomata();
-    private FragmentTwoShowTicketList fragmentTwoShowTicketList = new FragmentTwoShowTicketList();
-    private FragmentTwoCoinsList fragmentTwoCoinsList = new FragmentTwoCoinsList();
-    private FragmentThreeUserInformation fragmentThreeUserInformation = new FragmentThreeUserInformation();
-    private Fragment_Kassenautomat kassenautomat = new Fragment_Kassenautomat(fragmentOneShowAutomata,fragmentTwoShowTicketList,fragmentThreeUserInformation);
-    private MaintainFragment maintainFragment = MaintainFragment.newInstance(kassenautomatContext);
-    private SettingsDialog settingsDialog = new SettingsDialog();
+   private FragmentAutomat fragmentAutomat = new FragmentAutomat();
+    private FragmentTicketList fragmentTicketList = new FragmentTicketList();
+    private FragmentCoinList fragmentCoinList = new FragmentCoinList();
+    private FragmentUserInformation fragmentUserInformation = new FragmentUserInformation();
+    private FragmentKassenautomat kassenautomat = new FragmentKassenautomat(fragmentAutomat, fragmentTicketList, fragmentUserInformation);
+    private FragmentMaintain fragmentMaintain = FragmentMaintain.newInstance(kassenautomatContext);
+    private FragmentSettings fragmentSettings = new FragmentSettings();
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -61,10 +60,10 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
         kassenautomatContext = new KassenautomatContext(MainActivity.this, fragmentManager);
         DefaultValuesHandler.initializeDefaults(kassenautomatContext);
 
-        maintainFragment.kassenautomatContext = kassenautomatContext;
-        settingsDialog.kassenautomatContext = kassenautomatContext;
+        fragmentMaintain.kassenautomatContext = kassenautomatContext;
+        fragmentSettings.kassenautomatContext = kassenautomatContext;
 
-        //fragmentOneShowAutomata.setTicketToPay(null);
+        //fragmentAutomat.setTicketToPay(null);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -81,9 +80,9 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
 
         /*FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         {
-            fragmentTransaction.add(R.id.activity_main_container_one, fragmentOneShowAutomata);
-            fragmentTransaction.add(R.id.activity_main_container_two, fragmentTwoShowTicketList);
-            fragmentTransaction.add(R.id.activity_main_container_three, fragmentThreeUserInformation);
+            fragmentTransaction.add(R.id.activity_main_container_one, fragmentAutomat);
+            fragmentTransaction.add(R.id.activity_main_container_two, fragmentTicketList);
+            fragmentTransaction.add(R.id.activity_main_container_three, fragmentUserInformation);
         }
         fragmentTransaction.commit();*/
 
@@ -94,9 +93,9 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
 
         adapter.addFragment(kassenautomat,"Kassenautomat");
 
-        adapter.addFragment(maintainFragment,"Maintain");
+        adapter.addFragment(fragmentMaintain,"Maintain");
 
-        adapter.addFragment(settingsDialog,"Settings");
+        adapter.addFragment(fragmentSettings,"Settings");
 
 
         viewPager.setAdapter(adapter);
@@ -122,22 +121,22 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
 
     @Override
     public void onPayForTicket(int moneyValue) {
-        fragmentOneShowAutomata.showToPayValue(moneyValue);
+        fragmentAutomat.showToPayValue(moneyValue);
     }
 
     @Override
     public void setTextOfDisplay(int stringId) {
-        fragmentOneShowAutomata.setTextOfDisplay(stringId);
+        fragmentAutomat.setTextOfDisplay(stringId);
     }
 
     @Override
     public void updateTicketList() {
-        fragmentTwoShowTicketList.updateTicketList();
+        fragmentTicketList.updateTicketList();
     }
 
     @Override
     public void updateCoinList() {
-        fragmentTwoCoinsList.updateCoinList();
+        fragmentCoinList.updateCoinList();
     }
 
 
@@ -147,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         {
-           fragmentTransaction.replace(R.id.kassen_main_container_two, fragmentTwoShowTicketList);
+           fragmentTransaction.replace(R.id.kassen_main_container_two, fragmentTicketList);
         }
 
         fragmentTransaction.commit();
@@ -169,8 +168,8 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
 
     @Override
     public void onBackPressed() {
-        if(fragmentOneShowAutomata.hasTicketToPay()) {
-            endPayment(fragmentOneShowAutomata.getCentsToPay());
+        if(fragmentAutomat.hasTicketToPay()) {
+            endPayment(fragmentAutomat.getCentsToPay());
         } else {
             super.onBackPressed();
         }
@@ -181,32 +180,32 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
 
         Util.giveNickelback(payback, kassenautomatContext);
         returnToTicketList();
-        fragmentOneShowAutomata.setTicketToPay(null);
+        fragmentAutomat.setTicketToPay(null);
     }
 
     @Override
     public void endPayment() {
-        endPayment(fragmentOneShowAutomata.getCentsToPay());
+        endPayment(fragmentAutomat.getCentsToPay());
     }
 
     @Override
     public void startPayment(Ticket ticket) {
         if (ticket.isPaid()) {
-            fragmentOneShowAutomata.setTextOfDisplay(R.string.ticket_was_already_paid);
+            fragmentAutomat.setTextOfDisplay(R.string.ticket_was_already_paid);
         } else {
             if (ticket.isValid()) {
-                fragmentOneShowAutomata.setTicketToPay(ticket);
+                fragmentAutomat.setTicketToPay(ticket);
 
                 FragmentManager fragmentManager = kassenautomat.getKassenautomatFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
                 {
-                   fragmentTransaction.replace(R.id.kassen_main_container_two, fragmentTwoCoinsList);
+                   fragmentTransaction.replace(R.id.kassen_main_container_two, fragmentCoinList);
                 }
 
                 fragmentTransaction.commit();
             } else {
-                fragmentOneShowAutomata.setTextOfDisplay(R.string.ticket_was_not_valid);
+                fragmentAutomat.setTextOfDisplay(R.string.ticket_was_not_valid);
             }
         }
         updateTicketList();

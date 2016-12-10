@@ -12,7 +12,7 @@ import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
  */
 public abstract class MyFragment extends Fragment{
 
-    public OnButtonClickedCallback mCallback;
+    public static OnButtonClickedCallback mCallback;
 
     public void setmCallback(OnButtonClickedCallback mCallback) {
         this.mCallback = mCallback;

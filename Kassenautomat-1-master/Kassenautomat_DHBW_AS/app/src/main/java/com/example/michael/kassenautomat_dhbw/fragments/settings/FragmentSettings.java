@@ -23,7 +23,7 @@ import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
 /**
  * Created by Michael on 20.05.2016.
  */
-public class SettingsDialog extends MyFragment {
+public class FragmentSettings extends MyFragment {
 
     public KassenautomatContext kassenautomatContext;
 

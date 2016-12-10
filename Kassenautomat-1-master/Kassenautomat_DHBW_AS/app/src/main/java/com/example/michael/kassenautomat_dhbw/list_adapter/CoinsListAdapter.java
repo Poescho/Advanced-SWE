@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.michael.kassenautomat_dhbw.OnButtonClickedCallback;
 import com.example.michael.kassenautomat_dhbw.R;
 import com.example.michael.kassenautomat_dhbw.datatypes.Money;
-import com.example.michael.kassenautomat_dhbw.fragments.one.FragmentOneShowAutomata;
+import com.example.michael.kassenautomat_dhbw.fragments.one.FragmentAutomat;
 import com.example.michael.kassenautomat_dhbw.util.CoinDragShadow;
 
 import java.util.List;
@@ -57,7 +57,7 @@ public class CoinsListAdapter extends MyAdapter<Integer> {
         linLayBackground.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ClipData dragData = ClipData.newPlainText(FragmentOneShowAutomata.COIN_DRAG_DESC.getLabel(), Money.coinValues[position] + "");
+                ClipData dragData = ClipData.newPlainText(FragmentAutomat.COIN_DRAG_DESC.getLabel(), Money.coinValues[position] + "");
 
                 CoinDragShadow coinDragShadow = new CoinDragShadow(iBtnCoins, mCallback.getKassenautomatContext().getContext());
 

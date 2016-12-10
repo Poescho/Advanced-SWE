@@ -38,10 +38,10 @@
     <string name="fake_coin">Münze ist gefälscht!</string>
     <string name="ticket_deleted">Ticket gelöscht.</string>
     <string name="ticket_now_invalid">Ticket jetzt ungültig.</string>
-    <string name="ticket_was_already_paid">Ticket war schon bezahlt.</string>
+    <string name="ticket_was_already_paid">Ticket wurde bereits bezahlt.</string>
     <string name="ticket_was_not_valid">Ticket ist ungültig.</string>
-    <string name="ticket_taken">Ticket erhalten.</string>
-    <string name="no_more_park_coins">Parkmünzen sind alle</string>
+    <string name="ticket_taken">Ticket wurde ausgegeben.</string>
+    <string name="no_more_park_coins">Keine Parkmünzen vorhanden.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

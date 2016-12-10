@@ -15,7 +15,7 @@ import com.example.michael.kassenautomat_dhbw.list_adapter.CoinsListAdapter;
 /**
  * Created by administrator on 18.06.16.
  */
-public class FragmentTwoCoinsList extends MyFragment {
+public class FragmentCoinList extends MyFragment {
 
     View view;
     ListView list;

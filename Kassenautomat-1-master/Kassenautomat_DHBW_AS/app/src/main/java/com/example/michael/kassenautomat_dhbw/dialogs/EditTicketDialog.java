@@ -129,8 +129,8 @@ public class EditTicketDialog extends DialogFragment {
 
                 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd/hh/mm");
                 String strYear = year + "";
-                String strMonth = month < 10 ? "0" + month : month + "";
-                String strDay = day < 10 ? "0" + day : day + "";
+                String strMonth = beautifyDateToString(month);
+                String strDay = beautifyDateToString(day);
                 String strHours = beautifyDateToString(timePicker.getCurrentHour());
                 String strMinutes = beautifyDateToString(timePicker.getCurrentMinute());
 

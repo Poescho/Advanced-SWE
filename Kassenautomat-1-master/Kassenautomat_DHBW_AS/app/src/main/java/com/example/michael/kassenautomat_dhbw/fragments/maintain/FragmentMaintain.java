@@ -1,10 +1,8 @@
 package com.example.michael.kassenautomat_dhbw.fragments.maintain;
 
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -20,7 +18,6 @@ import com.example.michael.kassenautomat_dhbw.R;
 import com.example.michael.kassenautomat_dhbw.datatypes.Automata;
 import com.example.michael.kassenautomat_dhbw.datatypes.Money;
 import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
-import com.example.michael.kassenautomat_dhbw.dialogs.TextDialog;
 import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
 import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
@@ -28,19 +25,30 @@ import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
 /**
  * Created by Michael on 20.05.2016.
  */
-public class MaintainFragment extends MyFragment {
+public class FragmentMaintain extends MyFragment {
 
     public KassenautomatContext kassenautomatContext;
-    public static MaintainFragment newInstance(KassenautomatContext kassenautomatContext)
+    private static SeekBar sbTwoEuro;
+    private static SeekBar sbOneEuro;
+    private static SeekBar sbFiftyCent;
+    private static SeekBar sbTwentyCent;
+    private static SeekBar sbTenCent;
+    private static SeekBar sbFiveCent;
+    private static SeekBar sbParkCoins;
+
+
+
+    public static FragmentMaintain newInstance(KassenautomatContext kassenautomatContext)
     {
-        MaintainFragment maintainFragment = new MaintainFragment();
-        maintainFragment.kassenautomatContext = kassenautomatContext;
-        return maintainFragment;
+        FragmentMaintain fragmentMaintain = new FragmentMaintain();
+        fragmentMaintain.kassenautomatContext = kassenautomatContext;
+        return fragmentMaintain;
     }
 
     @NonNull
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        System.out.println("onCreateView:FragmentMaintain");
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         View view = layoutInflater.inflate(R.layout.dialog_maintain, null);
 
@@ -49,19 +57,19 @@ public class MaintainFragment extends MyFragment {
         Button btnLoadDefault = (Button)view.findViewById(R.id.dialog_maintain_load_default);
         Button btnOk = (Button)view.findViewById(R.id.dialog_maintain_ok);
 
-        final SeekBar sbTwoEuro = (SeekBar)view.findViewById(R.id.dialog_maintain_two_euro_seek_bar);
+        sbTwoEuro = (SeekBar)view.findViewById(R.id.dialog_maintain_two_euro_seek_bar);
         final EditText etTwoEuro = (EditText)view.findViewById(R.id.dialog_maintain_two_euro_edit_text);
-        final SeekBar sbOneEuro = (SeekBar)view.findViewById(R.id.dialog_maintain_one_euro_seek_bar);
+        sbOneEuro = (SeekBar)view.findViewById(R.id.dialog_maintain_one_euro_seek_bar);
         final EditText etOneEuro = (EditText)view.findViewById(R.id.dialog_maintain_one_euro_edit_text);
-        final SeekBar sbFiftyCent = (SeekBar)view.findViewById(R.id.dialog_maintain_fifty_cent_seek_bar);
+        sbFiftyCent = (SeekBar)view.findViewById(R.id.dialog_maintain_fifty_cent_seek_bar);
         final EditText etFiftyCent = (EditText)view.findViewById(R.id.dialog_maintain_fifty_cent_edit_text);
-        final SeekBar sbTwentyCent = (SeekBar)view.findViewById(R.id.dialog_maintain_twenty_cent_seek_bar);
+        sbTwentyCent = (SeekBar)view.findViewById(R.id.dialog_maintain_twenty_cent_seek_bar);
         final EditText etTwentyCent = (EditText)view.findViewById(R.id.dialog_maintain_twenty_cent_edit_text);
-        final SeekBar sbTenCent = (SeekBar)view.findViewById(R.id.dialog_maintain_ten_cent_seek_bar);
+        sbTenCent = (SeekBar)view.findViewById(R.id.dialog_maintain_ten_cent_seek_bar);
         final EditText etTenCent = (EditText)view.findViewById(R.id.dialog_maintain_ten_cent_edit_text);
-        final SeekBar sbFiveCent = (SeekBar)view.findViewById(R.id.dialog_maintain_five_cent_seek_bar);
+        sbFiveCent = (SeekBar)view.findViewById(R.id.dialog_maintain_five_cent_seek_bar);
         final EditText etFiveCent = (EditText)view.findViewById(R.id.dialog_maintain_five_cent_edit_text);
-        final SeekBar sbParkCoins = (SeekBar)view.findViewById(R.id.dialog_maintain_park_coins_seek_bar);
+        sbParkCoins = (SeekBar)view.findViewById(R.id.dialog_maintain_park_coins_seek_bar);
         final EditText etParkCoins = (EditText)view.findViewById(R.id.dialog_maintain_park_coins_edit_text);
 
 
@@ -77,15 +85,7 @@ public class MaintainFragment extends MyFragment {
 
 
 
-        Automata automata = mCallback.getKassenautomatContext().getAutomata();
-        sbTwoEuro.setProgress(automata.getMoney().getTwoEuro());
-        sbOneEuro.setProgress(automata.getMoney().getOneEuro());
-        sbFiftyCent.setProgress(automata.getMoney().getFiftyCent());
-        sbTwentyCent.setProgress(automata.getMoney().getTwentyCent());
-        sbTenCent.setProgress(automata.getMoney().getTenCent());
-        sbFiveCent.setProgress(automata.getMoney().getFiveCent());
-        sbParkCoins.setProgress((int) automata.getParkCoins());
-        automata = null;
+       update();
 
 
         btnOk.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +159,34 @@ public class MaintainFragment extends MyFragment {
         builder.setView(view);*/
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        System.out.println("OnResume");
+        super.onResume();
+
+
+
+    }
+
+    @Override
+    public void onStart() {
+        System.out.println("OnStart");
+        super.onStart();
+}
+
+    public static void update()
+    {
+        Automata automata = mCallback.getKassenautomatContext().getAutomata();
+        sbTwoEuro.setProgress(automata.getMoney().getTwoEuro());
+        sbOneEuro.setProgress(automata.getMoney().getOneEuro());
+        sbFiftyCent.setProgress(automata.getMoney().getFiftyCent());
+        sbTwentyCent.setProgress(automata.getMoney().getTwentyCent());
+        sbTenCent.setProgress(automata.getMoney().getTenCent());
+        sbFiveCent.setProgress(automata.getMoney().getFiveCent());
+        sbParkCoins.setProgress((int) automata.getParkCoins());
+        automata = null;
     }
 
 

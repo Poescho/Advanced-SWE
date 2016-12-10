@@ -13,7 +13,7 @@ import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
 
 import java.util.List;
 
-public class FragmentTwoShowTicketList extends MyFragment {
+public class FragmentTicketList extends MyFragment {
 
     View view;
     ListView list;

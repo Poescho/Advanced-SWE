@@ -13,7 +13,7 @@ import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
 /**
  * Created by administrator on 21.04.16.
  */
-public class FragmentThreeUserInformation extends MyFragment {
+public class FragmentUserInformation extends MyFragment {
     Button showTickets;
     Button showMoney;
     View view;

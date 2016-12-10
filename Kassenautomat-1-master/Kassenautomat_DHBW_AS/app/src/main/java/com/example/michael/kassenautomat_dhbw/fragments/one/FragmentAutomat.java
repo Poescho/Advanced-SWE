@@ -2,8 +2,6 @@ package com.example.michael.kassenautomat_dhbw.fragments.one;
 
 import android.content.ClipDescription;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +17,7 @@ import com.example.michael.kassenautomat_dhbw.datatypes.Ticket;
 import com.example.michael.kassenautomat_dhbw.datatypes.User;
 import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
 import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
-import com.example.michael.kassenautomat_dhbw.fragments.three.FragmentThreeUserInformation;
-import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentTwoShowTicketList;
+import com.example.michael.kassenautomat_dhbw.fragments.maintain.FragmentMaintain;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
 
 import java.util.Date;
@@ -30,7 +27,7 @@ import java.util.Random;
 /**
  * Created by administrator on 06.04.16.
  */
-public class FragmentOneShowAutomata extends MyFragment {
+public class FragmentAutomat extends MyFragment {
 
     private Ticket ticketToPay;
     private int centsToPay;
@@ -268,6 +265,7 @@ public class FragmentOneShowAutomata extends MyFragment {
                 e.printStackTrace();
             }
 
+            FragmentMaintain.update();
             mCallback.setLastPaidTicketId(ticketToPay.getId());
             mCallback.endPayment(centsToPay);
         }

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -16,7 +15,7 @@ import com.example.michael.kassenautomat_dhbw.R;
 import com.example.michael.kassenautomat_dhbw.datatypes.Ticket;
 import com.example.michael.kassenautomat_dhbw.dialogs.EditTicketDialog;
 import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
-import com.example.michael.kassenautomat_dhbw.fragments.one.FragmentOneShowAutomata;
+import com.example.michael.kassenautomat_dhbw.fragments.one.FragmentAutomat;
 import com.example.michael.kassenautomat_dhbw.util.TicketDragShadow;
 
 import java.text.DateFormat;
@@ -135,7 +134,7 @@ public class CustomListAdapter extends MyAdapter<Ticket> {
         linLayBackground.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                ClipData dragData = ClipData.newPlainText(FragmentOneShowAutomata.TICKET_DRAG_DESC.getLabel(), getItem(position).getId() + "");
+                ClipData dragData = ClipData.newPlainText(FragmentAutomat.TICKET_DRAG_DESC.getLabel(), getItem(position).getId() + "");
 
                 TicketDragShadow coinDragShadow = new TicketDragShadow(linLayBackground);
 

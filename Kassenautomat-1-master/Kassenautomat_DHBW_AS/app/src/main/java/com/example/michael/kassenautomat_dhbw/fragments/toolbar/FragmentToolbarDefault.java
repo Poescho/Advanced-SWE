@@ -1,16 +1,5 @@
 package com.example.michael.kassenautomat_dhbw.fragments.toolbar;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-
-import com.example.michael.kassenautomat_dhbw.R;
-import com.example.michael.kassenautomat_dhbw.fragments.maintain.MaintainFragment;
-import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
-import com.example.michael.kassenautomat_dhbw.fragments.settings.SettingsDialog;
-
 /**
  * Created by administrator on 03.05.16.
  */
@@ -26,7 +15,7 @@ import com.example.michael.kassenautomat_dhbw.fragments.settings.SettingsDialog;
         btnMaintain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MaintainFragment dialog = new MaintainFragment();
+                FragmentMaintain dialog = new FragmentMaintain();
                 dialog.setmCallback(mCallback);
                 dialog.show(mCallback.getKassenautomatContext().getFragmentManager(), "Maintain dialog");
             }
@@ -36,7 +25,7 @@ import com.example.michael.kassenautomat_dhbw.fragments.settings.SettingsDialog;
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SettingsDialog dialog = new SettingsDialog();
+                FragmentSettings dialog = new FragmentSettings();
                 dialog.setmCallback(mCallback);
                 dialog.show(mCallback.getKassenautomatContext().getFragmentManager(), "Settings dialog");
             }
