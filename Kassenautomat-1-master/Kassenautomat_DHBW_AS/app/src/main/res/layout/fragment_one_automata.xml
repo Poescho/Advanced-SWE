@@ -24,7 +24,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/hello"
-                    android:background="@color/white"
+                    android:background="@color/displaygreen"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:typeface="monospace"

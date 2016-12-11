@@ -1,11 +1,6 @@
 package com.example.michael.kassenautomat_dhbw.fragments.settings;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +28,7 @@ public class FragmentSettings extends MyFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.dialog_settings, null);
+        View view = layoutInflater.inflate(R.layout.fragment_settings, null);
 
         Button btnOk = (Button)view.findViewById(R.id.dialog_settings_ok);
         Button btnResetUser = (Button)view.findViewById(R.id.dialog_settings_reset_user);

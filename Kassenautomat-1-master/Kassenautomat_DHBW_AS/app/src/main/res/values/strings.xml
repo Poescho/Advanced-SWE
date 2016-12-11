@@ -33,7 +33,7 @@
     <string name="prices_are_euro">Alle Preise sind in Euro angegeben.</string>
     <string name="park_ticket">Parkticket</string>
     <string name="coins">Münzen</string>
-    <string name="hello">Hallo</string>
+    <string name="hello">Herzlich Willkommen!</string>
     <string name="park_coin_stuck">Parkmünze steckt fest. Automat wird zurückgesetzt.</string>
     <string name="ticket_paid">Ticket wurde bezahlt.</string>
     <string name="fake_coin">Münze ist gefälscht!</string>

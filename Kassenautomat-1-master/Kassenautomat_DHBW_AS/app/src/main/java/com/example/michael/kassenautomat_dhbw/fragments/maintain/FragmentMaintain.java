@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -51,7 +50,7 @@ public class FragmentMaintain extends MyFragment {
                              Bundle savedInstanceState) {
         System.out.println("onCreateView:FragmentMaintain");
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.dialog_maintain, null);
+        View view = layoutInflater.inflate(R.layout.fragment_maintain, null);
 
         Button btnSetDefault = (Button)view.findViewById(R.id.dialog_maintain_set_default);
         Button btnLoadDefault = (Button)view.findViewById(R.id.dialog_maintain_load_default);
