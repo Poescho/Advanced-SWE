@@ -24,12 +24,14 @@ public class Util {
 
         int nickelbackIndex = 0;
         while(payback < 0 && nickelbackIndex <= 6) {
+            System.out.println("nickelbackIndex"+nickelbackIndex);
             if(automataMoney.getAmountOfCoinValue(Money.coinValues[nickelbackIndex]) <= 0) {
                 nickelbackIndex++;
                 continue;
             }
             if(Money.coinValues[nickelbackIndex] <= Math.abs(payback)) {
                 System.out.println("Give back " + Money.coinValues[nickelbackIndex]);
+
                 System.out.println(payback);
                 userMoney.add(Money.coinValues[nickelbackIndex]);
                 automataMoney.remove(Money.coinValues[nickelbackIndex]);

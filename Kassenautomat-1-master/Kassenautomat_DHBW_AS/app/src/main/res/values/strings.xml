@@ -44,6 +44,7 @@
     <string name="ticketDate_was_not_valid">Datum des Tickets ist ungültig.</string>
     <string name="ticket_taken">Ticket wurde ausgegeben.</string>
     <string name="no_more_park_coins">Keine Parkmünzen vorhanden.</string>
+    <string name="payback">Rückgeld: </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

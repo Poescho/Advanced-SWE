@@ -21,6 +21,7 @@ import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
 import com.example.michael.kassenautomat_dhbw.fragments.maintain.FragmentMaintain;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
 
+import java.sql.Struct;
 import java.util.Date;
 import java.util.Random;
 
@@ -284,6 +285,13 @@ public class FragmentAutomat extends MyFragment {
 
         txtDisplay.setText(stringId);
     }
+
+    public void setTextOfDisplayString(String text) {
+        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display);
+
+        txtDisplay.setText(text);
+    }
+
 
     public void setTicketToPay(Ticket ticketToPay) {
         this.ticketToPay = ticketToPay;

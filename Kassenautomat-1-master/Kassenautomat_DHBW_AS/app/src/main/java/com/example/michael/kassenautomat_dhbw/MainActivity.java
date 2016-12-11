@@ -177,8 +177,11 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
 
     @Override
     public void endPayment(int payback) {
-
+        System.out.println(payback);
         Util.giveNickelback(payback, kassenautomatContext);
+        String rgBetrag =  getString(R.string.payback)+ Math.abs(payback/100)+", "+ Math.abs(payback%100)+"€";
+        String anzeigeText = getString(R.string.ticket_paid)+"\n"+rgBetrag;
+        fragmentAutomat.setTextOfDisplayString(anzeigeText);
         returnToTicketList();
         fragmentAutomat.setTicketToPay(null);
     }
