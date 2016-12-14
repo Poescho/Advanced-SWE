@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
     private FragmentQuittungsList fragmentQuittungsList = new FragmentQuittungsList();
     private FragmentCoinList fragmentCoinList = new FragmentCoinList();
     private FragmentUserInformation fragmentUserInformation = new FragmentUserInformation();
-    private FragmentKassenautomat kassenautomat = new FragmentKassenautomat(fragmentAutomat, fragmentTicketList, fragmentUserInformation);
+    private FragmentKassenautomat kassenautomat = new FragmentKassenautomat();
     private FragmentMaintain fragmentMaintain = FragmentMaintain.newInstance(kassenautomatContext);
     private FragmentSettings fragmentSettings = new FragmentSettings();
 
@@ -53,8 +53,12 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        //add fragments
+        kassenautomat.setFragmentAutomat(fragmentAutomat);
+        kassenautomat.setFragmentTicketList(fragmentTicketList);
+        kassenautomat.setFragmentUserInformation(fragmentUserInformation);
 
+        setContentView(R.layout.activity_main);
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         setContentView(R.layout.activity_main);

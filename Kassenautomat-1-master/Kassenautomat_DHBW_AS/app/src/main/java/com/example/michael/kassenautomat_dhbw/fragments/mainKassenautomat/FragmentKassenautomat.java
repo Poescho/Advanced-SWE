@@ -24,10 +24,16 @@ public class FragmentKassenautomat extends MyFragment  {
     {
 
     }
-    public FragmentKassenautomat(FragmentAutomat fragmentAutomat, FragmentTicketList fragmentTicketList, FragmentUserInformation fragmentUserInformation) {
-        this.fragmentTicketList = fragmentTicketList;
-        this.fragmentAutomat = fragmentAutomat;
+    public void setFragmentUserInformation(FragmentUserInformation fragmentUserInformation) {
         this.fragmentUserInformation = fragmentUserInformation;
+    }
+
+    public void setFragmentAutomat(FragmentAutomat fragmentAutomat) {
+        this.fragmentAutomat = fragmentAutomat;
+    }
+
+    public void setFragmentTicketList(FragmentTicketList fragmentTicketList) {
+        this.fragmentTicketList = fragmentTicketList;
     }
 
 
