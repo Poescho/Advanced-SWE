@@ -2,6 +2,8 @@ package com.example.michael.kassenautomat_dhbw.fragments.one;
 
 import android.content.ClipDescription;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.DragEvent;
@@ -206,9 +208,16 @@ public class FragmentAutomat extends MyFragment {
 
             random.setSeed(new Date().getTime());
 
-            if(random.nextInt(10) == random.nextInt(10)) {
+           if( random.nextInt(10) == random.nextInt(10)) {
+
                 txtDisplay.setText(R.string.park_coin_stuck);
-                iBtnReset.callOnClick();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        iBtnReset.callOnClick();
+                    }
+                }, 2000);
                 return;
             }
 
