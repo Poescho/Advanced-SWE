@@ -121,10 +121,6 @@ public class FragmentAutomat extends MyFragment {
 
         Random random = new Random();
         random.setSeed(new Date().getTime() * 2);
-        if(random.nextInt(10) == random.nextInt(10)) {
-            mCallback.setTextOfDisplay(R.string.fake_coin);
-            return;
-        }
 
         TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display2);
 
