@@ -42,7 +42,7 @@
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:text="Automat zurücksetzen"
+            android:text="Zahlung abbrechen"
             android:textSize="17sp"/>
 
         <Button style="@style/Widget.AppCompat.Button"
