@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
        /* String anzeigeText = R.string.ticket_paid + "Rückgeld: "+Math.abs(payback);
         fragmentAutomat.setTextOfDisplayString(anzeigeText);*/
 
-        if(fragmentAutomat.getTicketToPay().isPaid()) {
+        if(fragmentAutomat.getTicketToPay() != null && fragmentAutomat.getTicketToPay().isPaid()) {
             Quittung quittung;
             try {
 

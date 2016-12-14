@@ -362,13 +362,24 @@ public class DatabaseConnection {
 
     public Quittung addQuittung(long ticketId, long timestamp, long timestamp_ticket, long price, long dauer) throws DbException{
 
+
+        writeDatabase.beginTransaction();
+
         long ret = writeDatabase.insert(TableQuittung.DB_TABLE_NAME,
                 null,
                 Quittung.getContentValues(ticketId, timestamp, timestamp_ticket, price, dauer));
-
-        if(ret == -1) {
-            throw new DbException("Couldn´t insert into " + TableQuittung.DB_TABLE_NAME + ".");
+        try {
+            if (ret == -1) {
+                throw new DbException("Couldn´t insert into " + TableQuittung.DB_TABLE_NAME + ".");
+            }
+        } catch (DbException e) {
+            writeDatabase.endTransaction();
+            throw e;
+        } finally {
+            writeDatabase.setTransactionSuccessful();
         }
+
+        writeDatabase.endTransaction();
 
         return new Quittung(ret, ticketId, timestamp, timestamp_ticket, price, dauer);
     }

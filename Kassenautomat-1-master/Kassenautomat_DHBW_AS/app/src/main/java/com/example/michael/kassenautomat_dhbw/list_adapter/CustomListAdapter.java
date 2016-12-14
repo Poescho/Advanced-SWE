@@ -92,6 +92,7 @@ public class CustomListAdapter extends MyAdapter<Ticket> {
             public void onClick(View v) {
                 try {
                     mCallback.getKassenautomatContext().getDatabaseConnection().deleteTicket(getItem(position).getId());
+                    mCallback.getKassenautomatContext().getDatabaseConnection().deleteQuittung(getItem(position).getId());
                     remove(getItem(position));
                 } catch (DbException e) {
                     e.printStackTrace();
