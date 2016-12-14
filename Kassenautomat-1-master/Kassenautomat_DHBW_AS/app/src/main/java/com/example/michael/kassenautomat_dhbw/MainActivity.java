@@ -199,8 +199,21 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
     @Override
     public void endPayment(int payback) {
         Util.giveNickelback(payback, kassenautomatContext);
+
        /* String anzeigeText = R.string.ticket_paid + "Rückgeld: "+Math.abs(payback);
         fragmentAutomat.setTextOfDisplayString(anzeigeText);*/
+
+        if(fragmentAutomat.getTicketToPay().isPaid()) {
+            Quittung quittung;
+            try {
+
+                quittung = fragmentAutomat.getTicketToPay().takeQuittung(kassenautomatContext.getDatabaseConnection());
+
+            } catch (DbException e) {
+                e.printStackTrace();
+            }
+        }
+
         returnToTicketList();
         fragmentAutomat.setTicketToPay(null);
     }
@@ -235,12 +248,7 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
                 fragmentAutomat.setTextOfDisplay(R.string.ticket_was_not_valid);
             }
         }
-        Quittung quittung;
-        try {
-            quittung = ticket.takeQuittung(kassenautomatContext.getDatabaseConnection());
-        } catch (DbException e) {
-            e.printStackTrace();
-        }
+
         updateTicketList();
     }
 

@@ -208,7 +208,7 @@ public class FragmentAutomat extends MyFragment {
 
             random.setSeed(new Date().getTime());
 
-           if(random.nextInt(3) == random.nextInt(3)) {
+           if(random.nextInt(10) == random.nextInt(10)) {
 
                 txtDisplay.setText(R.string.park_coin_stuck);
                 Handler handler = new Handler();
@@ -290,6 +290,11 @@ public class FragmentAutomat extends MyFragment {
             }
 
 
+    }
+
+    public Ticket getTicketToPay()
+    {
+        return this.ticketToPay;
     }
 
     public int getCentsToPay() {
