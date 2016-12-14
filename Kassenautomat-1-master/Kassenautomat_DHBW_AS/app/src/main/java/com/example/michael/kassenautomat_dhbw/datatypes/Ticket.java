@@ -3,7 +3,10 @@ package com.example.michael.kassenautomat_dhbw.datatypes;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import com.example.michael.kassenautomat_dhbw.database.DatabaseConnection;
 import com.example.michael.kassenautomat_dhbw.database.tables.TableTicket;
+import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
+import com.example.michael.kassenautomat_dhbw.fragments.one.FragmentAutomat;
 
 /**
  * Created by Michael on 19.04.2016.
@@ -60,6 +63,13 @@ public class Ticket {
         return cv;
     }
 
+    public Quittung takeQuittung(DatabaseConnection databaseConnection) throws DbException {
+        return databaseConnection.addQuittung(this.id, System.currentTimeMillis(), this.timestamp, getPrice(this), getDuration());
+    }
+
+    public Quittung getQuittung(DatabaseConnection databaseConnection) throws DbException {
+        return databaseConnection.getQuittung(this.id);
+    }
 
     public long getId() {
         return id;
@@ -100,4 +110,29 @@ public class Ticket {
     public boolean isPaid() {
         return paid != 0;
     }
+
+    private long getDuration() { return this.timestamp - System.currentTimeMillis(); }
+
+    private long getPrice(Ticket ticket) {
+        long centsToPay;
+
+        if(ticket != null) {
+            long milliSeconds = System.currentTimeMillis() - ticket.getTimestamp();
+            long seconds = milliSeconds / 1000;
+            long minutes = seconds / 60;
+            long hours = minutes / 60;
+            long days = hours / 24;
+
+
+            centsToPay = (int) FragmentAutomat.getCentPriceForDuration(minutes, hours, days);
+            if (centsToPay < 0) {
+                return centsToPay = 0;
+            }
+
+            return centsToPay;
+        }
+        return 0;
+    }
+
+
 }

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.michael.kassenautomat_dhbw.database.tables.TableAutomata;
 import com.example.michael.kassenautomat_dhbw.database.tables.TableMoneybank;
+import com.example.michael.kassenautomat_dhbw.database.tables.TableQuittung;
 import com.example.michael.kassenautomat_dhbw.database.tables.TableTicket;
 import com.example.michael.kassenautomat_dhbw.database.tables.TableUser;
 import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
@@ -52,6 +53,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(TableMoneybank.TABLE_CREATE_STATEMENT);
         db.execSQL(TableAutomata.TABLE_CREATE_STATEMENT);
         db.execSQL(TableTicket.TABLE_CREATE_STATEMENT);
+        db.execSQL(TableQuittung.TABLE_CREATE_STATEMENT);
     }
 
     /**
@@ -98,6 +100,14 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                     System.out.println("Dropped table Ticket");
                 } catch (SQLException e) {
                     System.out.println("Exception Ticket");
+                    e.printStackTrace();
+                }
+
+                try {
+                    db.execSQL(TableQuittung.TABLE_DROP_STATEMENT);
+                    System.out.println("Dropped table Quittung");
+                } catch (SQLException e) {
+                    System.out.println("Exception Quittung");
                     e.printStackTrace();
                 }
             //} else {

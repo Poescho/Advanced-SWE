@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_one_show_automata_lin_layout_background2"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/fragment_one_show_automata_text_view_display2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello"
+            android:background="@color/displaygreen"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:typeface="monospace"
+            android:layout_margin="20dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button style="@style/Widget.AppCompat.Button"
+            android:id="@+id/btn_ticket_lösen"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:text="Parkschein lösen"
+            android:textSize="17sp"/>
+
+        <Button style="@style/Widget.AppCompat.Button"
+            android:id="@+id/btn_automat_zurücksetzen"
+            android:layout_below="@+id/btn_ticket_lösen"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:text="Automat zurücksetzen"
+            android:textSize="17sp"/>
+
+        <Button style="@style/Widget.AppCompat.Button"
+            android:id="@+id/btn_toggle"
+            android:layout_below="@+id/btn_automat_zurücksetzen"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:text="Quittungen anzeigen"
+            android:textSize="17sp"
+            android:onClick=""/>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

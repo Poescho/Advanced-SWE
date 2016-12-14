@@ -65,6 +65,8 @@ public class User {
 
 
 
+
+
     //Getters and Setters
     public Money getMoney() {
         return money;

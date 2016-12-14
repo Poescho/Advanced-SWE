@@ -11,13 +11,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.michael.kassenautomat_dhbw.datatypes.Quittung;
 import com.example.michael.kassenautomat_dhbw.datatypes.Ticket;
+import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
 import com.example.michael.kassenautomat_dhbw.fragments.mainKassenautomat.FragmentKassenautomat;
 import com.example.michael.kassenautomat_dhbw.fragments.maintain.FragmentMaintain;
 import com.example.michael.kassenautomat_dhbw.fragments.one.FragmentAutomat;
 import com.example.michael.kassenautomat_dhbw.fragments.settings.FragmentSettings;
 import com.example.michael.kassenautomat_dhbw.fragments.three.FragmentUserInformation;
 import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentCoinList;
+import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentQuittungsList;
 import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentTicketList;
 import com.example.michael.kassenautomat_dhbw.helpers.ViewPagerAdapter;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
    // private FragmentToolbarDefault fragmentToolbarDefault = new FragmentToolbarDefault();
    private FragmentAutomat fragmentAutomat = new FragmentAutomat();
     private FragmentTicketList fragmentTicketList = new FragmentTicketList();
+    private FragmentQuittungsList fragmentQuittungsList = new FragmentQuittungsList();
     private FragmentCoinList fragmentCoinList = new FragmentCoinList();
     private FragmentUserInformation fragmentUserInformation = new FragmentUserInformation();
     private FragmentKassenautomat kassenautomat = new FragmentKassenautomat(fragmentAutomat, fragmentTicketList, fragmentUserInformation);
@@ -153,6 +157,18 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
     }
 
     @Override
+    public void changeToQuittungsList() {
+        FragmentManager fragmentManager = kassenautomat.getKassenautomatFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        {
+            fragmentTransaction.replace(R.id.kassen_main_container_two, fragmentQuittungsList);
+        }
+
+        fragmentTransaction.commit();
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
 
@@ -213,6 +229,12 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
             else{
                 fragmentAutomat.setTextOfDisplay(R.string.ticket_was_not_valid);
             }
+        }
+        Quittung quittung;
+        try {
+            quittung = ticket.takeQuittung(kassenautomatContext.getDatabaseConnection());
+        } catch (DbException e) {
+            e.printStackTrace();
         }
         updateTicketList();
     }

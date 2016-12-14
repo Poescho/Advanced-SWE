@@ -7,7 +7,9 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.michael.kassenautomat_dhbw.database.tables.TableQuittung;
 import com.example.michael.kassenautomat_dhbw.datatypes.Automata;
+import com.example.michael.kassenautomat_dhbw.datatypes.Quittung;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
 import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
 import com.example.michael.kassenautomat_dhbw.database.tables.TableAutomata;
@@ -185,6 +187,40 @@ public class DatabaseConnection {
         throw new DbException("No ticket with id " + id + " found.");
     }
 
+    public List<Quittung> getQuittungsFromUser(long id) {
+        List<Quittung> quittungsList = new ArrayList<>();
+
+        Cursor c = writeDatabase.query(TableQuittung.DB_TABLE_NAME,
+                new String[] {TableQuittung.DB_COLUMN_ID, TableQuittung.DB_COLUMN_TICKET_ID, TableQuittung.DB_COLUMN_DATE, TableQuittung.DB_COLUMN_DATE_TICKET, TableQuittung.DB_COLUMN_PRICE, TableQuittung.DB_COLUMN_DAUER},
+                TableQuittung.DB_COLUMN_TICKET_ID + " = " + id,
+                null, null, null, null);
+
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            Quittung newQuittung = new Quittung(c.getLong(0), c.getLong(1), c.getLong(2), c.getLong(3), c.getLong(4), c.getLong(5));
+            quittungsList.add(newQuittung);
+            c.moveToNext();
+        }
+        c.close();
+        return quittungsList;
+    }
+
+    public Quittung getQuittung(long id) throws DbException {
+        Cursor c = writeDatabase.query(TableQuittung.DB_TABLE_NAME,
+                new String[]{TableQuittung.DB_COLUMN_ID, TableQuittung.DB_COLUMN_TICKET_ID, TableQuittung.DB_COLUMN_DATE, TableQuittung.DB_COLUMN_DATE_TICKET, TableQuittung.DB_COLUMN_PRICE, TableQuittung.DB_COLUMN_DAUER},
+                TableQuittung.DB_COLUMN_ID + " = " + id,
+                null, null, null, null);
+
+        if(c.getCount() > 0) {
+            c.moveToFirst();
+            Quittung quittung= new Quittung(c.getLong(0), c.getLong(1), c.getLong(2), c.getLong(3), c.getLong(4), c.getLong(5));
+            c.close();
+            return quittung;
+        }
+        c.close();
+        throw new DbException("No receipt with id " + id + " found.");
+    }
+
 
     public Automata getAutomata() throws DbException {
         Cursor c = writeDatabase.query(TableAutomata.DB_TABLE_NAME,
@@ -324,6 +360,18 @@ public class DatabaseConnection {
         return addTicket(userId, timestamp, iValid, iPaid);
     }
 
+    public Quittung addQuittung(long ticketId, long timestamp, long timestamp_ticket, long price, long dauer) throws DbException{
+
+        long ret = writeDatabase.insert(TableQuittung.DB_TABLE_NAME,
+                null,
+                Quittung.getContentValues(ticketId, timestamp, timestamp_ticket, price, dauer));
+
+        if(ret == -1) {
+            throw new DbException("Couldn´t insert into " + TableQuittung.DB_TABLE_NAME + ".");
+        }
+
+        return new Quittung(ret, ticketId, timestamp, timestamp_ticket, price, dauer);
+    }
 
     public Automata addAutomata(KassenautomatContext kassenautomatContext) throws DbException {
 
@@ -479,6 +527,21 @@ public class DatabaseConnection {
             throw new DbException("More then one was affected while deleting a ticket with id " + id + ". " + ret + " rows were affected.");
         } else {
             throw new DbException("Less then 0 rows were affected while deleting a ticket. Most likely a failure in the database. Rows affected: " + ret);
+        }
+    }
+
+    public boolean deleteQuittung(long id) throws DbException {
+        int ret = writeDatabase.delete(TableQuittung.DB_TABLE_NAME,
+                TableQuittung.DB_COLUMN_ID + " = " + id, null);
+        if(ret == 0) {
+            return false;
+        } else if(ret == 1) {
+            return true;
+        }
+        if(ret > 1) {
+            throw new DbException("More then one was affected while deleting a receipt with id " + id + ". " + ret + " rows were affected.");
+        } else {
+            throw new DbException("Less then 0 rows were affected while deleting a receipt. Most likely a failure in the database. Rows affected: " + ret);
         }
     }
 

@@ -12,6 +12,7 @@ public interface OnButtonClickedCallback {
     void updateTicketList();
     void updateCoinList();
     void returnToTicketList();
+    void changeToQuittungsList();
     void endPayment(int payback);
     void endPayment();
     void startPayment(Ticket ticket);

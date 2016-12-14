@@ -1,9 +1,6 @@
 package com.example.michael.kassenautomat_dhbw.database.tables;
 
 /**
- * Created by Michael on 19.04.2016.
- *
- *
  * Contains the constants for the table "Ticket" in the database,
  * like table name and sql statement to create the table.
  */

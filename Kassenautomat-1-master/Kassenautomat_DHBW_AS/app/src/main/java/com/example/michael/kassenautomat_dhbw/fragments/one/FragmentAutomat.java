@@ -2,23 +2,33 @@ package com.example.michael.kassenautomat_dhbw.fragments.one;
 
 import android.content.ClipDescription;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.michael.kassenautomat_dhbw.MainActivity;
 import com.example.michael.kassenautomat_dhbw.R;
 import com.example.michael.kassenautomat_dhbw.datatypes.Automata;
 import com.example.michael.kassenautomat_dhbw.datatypes.Money;
+import com.example.michael.kassenautomat_dhbw.datatypes.Quittung;
 import com.example.michael.kassenautomat_dhbw.datatypes.Ticket;
 import com.example.michael.kassenautomat_dhbw.datatypes.User;
 import com.example.michael.kassenautomat_dhbw.dialogs.MyFragment;
 import com.example.michael.kassenautomat_dhbw.dialogs.TextDialog;
 import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
+import com.example.michael.kassenautomat_dhbw.fragments.mainKassenautomat.FragmentKassenautomat;
 import com.example.michael.kassenautomat_dhbw.fragments.maintain.FragmentMaintain;
+import com.example.michael.kassenautomat_dhbw.fragments.three.FragmentUserInformation;
+import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentCoinList;
+import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentQuittungsList;
+import com.example.michael.kassenautomat_dhbw.fragments.two.FragmentTicketList;
 import com.example.michael.kassenautomat_dhbw.util.DefaultValuesHandler;
 
 import java.sql.Struct;
@@ -35,8 +45,7 @@ public class FragmentAutomat extends MyFragment {
     private int centsToPay;
     private View view;
 
-    private ImageButton iBtnReset;
-
+    private Button iBtnReset;
 
     public static final ClipDescription COIN_DRAG_DESC = new ClipDescription("COIN_DRAG_DESC", new String[] {ClipDescription.MIMETYPE_TEXT_PLAIN});
     public static final ClipDescription TICKET_DRAG_DESC = new ClipDescription("TICKET_DRAG_DESC", new String[] {ClipDescription.MIMETYPE_TEXT_PLAIN});
@@ -47,14 +56,14 @@ public class FragmentAutomat extends MyFragment {
 
 
 
-        view = inflater.inflate(R.layout.fragment_one_automata, container, false);
+        view = inflater.inflate(R.layout.fragment_one_automata2, container, false);
 
-        final TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display);
-        iBtnReset = (ImageButton)view.findViewById(R.id.fragment_one_show_automata_button_reset);
-        final ImageButton iBtnTakeTicket = (ImageButton)view.findViewById(R.id.fragment_one_show_automata_button_take_ticket);
+        final TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display2);
+        iBtnReset = (Button) view.findViewById(R.id.btn_automat_zurücksetzen);
+        final Button iBtnTakeTicket = (Button)view.findViewById(R.id.btn_ticket_lösen);
+        final Button toggle = (Button) view.findViewById(R.id.btn_toggle);
 
-        LinearLayout linLayTicketInput = (LinearLayout)view.findViewById(R.id.fragment_one_show_automata_lin_layout_ticket_input);
-        LinearLayout linLayCoinInput = (LinearLayout)view.findViewById(R.id.fragment_one_show_automata_lin_layout_coin_input);
+
 
         iBtnTakeTicket.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,61 +89,23 @@ public class FragmentAutomat extends MyFragment {
             }
         });
 
-        linLayTicketInput.setOnDragListener(new View.OnDragListener() {
+        toggle.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onDrag(View v, DragEvent event) {
-
-                if(event.getAction() == DragEvent.ACTION_DROP && event.getClipDescription().getLabel().equals(TICKET_DRAG_DESC.getLabel())) {
-
-                    long id = Long.parseLong(event.getClipData().getItemAt(0).coerceToText(mCallback.getKassenautomatContext().getContext()) + "");
-
-                    Ticket ticket;
-                    try {
-                        ticket = mCallback.getKassenautomatContext().getDatabaseConnection().getTicket(id);
-                    } catch (DbException e) {
-                        e.printStackTrace();
-                        return false;
-                    }
-                    if (ticket == null) {
-                        return false;
-                    }
-
-                    mCallback.startPayment(ticket);
-
-                    return true;
+            public void onClick(View v) {
+                if(toggle.getText().equals("Quittungen anzeigen")){
+                    mCallback.changeToQuittungsList();
+                } else if(toggle.getText().equals("Tickets anzeigen")){
+                    mCallback.returnToTicketList();
                 }
-                return true;
             }
         });
-
-
-        linLayCoinInput.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-
-                if(event.getAction() == DragEvent.ACTION_DROP && event.getClipDescription().getLabel().equals(COIN_DRAG_DESC.getLabel())) {
-                    int coinValue;
-                    try {
-                        coinValue = Integer.parseInt(event.getClipData().getItemAt(0).coerceToText(mCallback.getKassenautomatContext().getContext()) + "");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return false;
-                    }
-
-                    mCallback.onPayForTicket(coinValue);
-                    mCallback.updateCoinList();
-                    return true;
-                }
-
-                return true;
-            }
-        });
-
 
         return view;
+
+
     }
 
-    private long getCentPriceForDuration(long minutes, long hours, long days) {
+    public static long getCentPriceForDuration(long minutes, long hours, long days) {
         if(days > 0) {
             return DefaultValuesHandler.getBasePriceDay(mCallback.getKassenautomatContext()) + days * DefaultValuesHandler.getPricePerDay(mCallback.getKassenautomatContext());
         } else if (hours > 0) {
@@ -153,7 +124,7 @@ public class FragmentAutomat extends MyFragment {
             return;
         }
 
-        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display);
+        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display2);
 
 
         Automata automata = mCallback.getKassenautomatContext().getAutomata();
@@ -245,7 +216,7 @@ public class FragmentAutomat extends MyFragment {
 
             user.addParkCoin();
 
-            txtDisplay.setText(R.string.ticket_paid);
+            txtDisplay.setText("Ticket wurde bezahlt." + "\n\nWechselgeld: " + Math.abs(centsToPay/100) + "," + Math.abs(centsToPay % 100) + "€");
             automata.setParkCoins(automata.getParkCoins() - 1);
 
             try {
@@ -274,20 +245,19 @@ public class FragmentAutomat extends MyFragment {
     }
 
     private void refreshOutput() {
-        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display);
+        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display2);
         String textToDisplay = "Ticket bezahlen: \n" + centsToPay/100 + "," + centsToPay % 100 + "€";
         txtDisplay.setText(textToDisplay);
     }
 
-
     public void setTextOfDisplay(int stringId) {
-        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display);
+        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display2);
 
         txtDisplay.setText(stringId);
     }
 
     public void setTextOfDisplayString(String text) {
-        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display);
+        TextView txtDisplay = (TextView)view.findViewById(R.id.fragment_one_show_automata_text_view_display2);
 
         txtDisplay.setText(text);
     }
