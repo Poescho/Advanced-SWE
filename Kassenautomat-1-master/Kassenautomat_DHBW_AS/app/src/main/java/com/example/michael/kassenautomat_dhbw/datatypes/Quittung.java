@@ -20,6 +20,19 @@ public class Quittung {
         this.id = id;
         this.ticketId = ticketId;
         this.timestamp = timestamp;
+        this.timestamp_ticket = timestamp_ticket;
+        this.price = price;
+        this.dauer = calcDauer(timestamp, timestamp_ticket);
+    }
+
+    private long calcDauer(long ts, long ts_t) {
+        long milliSeconds = ts - ts_t;
+        long seconds = milliSeconds / 1000;
+        long minutes = seconds / 60;
+        long hours = minutes / 60;
+
+        return minutes;
+
     }
 
     public ContentValues getContentValues() {

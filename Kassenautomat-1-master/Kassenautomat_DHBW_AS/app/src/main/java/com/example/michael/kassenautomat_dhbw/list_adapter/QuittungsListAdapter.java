@@ -42,7 +42,7 @@ public class QuittungsListAdapter extends MyAdapter<Quittung> {
         //LayoutInflater inflater = context.getLayoutInflater();
         //View rowView=inflater.inflate(R.layout.list_ticket_row, null, true);
 
-        TextView txtParkdauer = (TextView) rowView.findViewById(R.id.parkdauer);
+        TextView txtId = (TextView) rowView.findViewById(R.id.id);
         TextView txtShowDate = (TextView) rowView.findViewById(R.id.showDate);
         TextView txtPreis = (TextView) rowView.findViewById(R.id.preis);
 
@@ -52,9 +52,9 @@ public class QuittungsListAdapter extends MyAdapter<Quittung> {
 
         final String date = DateFormat.getDateInstance().format(new Date(getItem(position).getTimestamp()));
 
-        txtParkdauer.setText("Parkdauer: " + getItem(position).getDauer());
-        txtShowDate.setText("Datum: " + getItem(position).getTimestamp());
-        txtPreis.setText("Preis: "+ getItem(position).getPrice());
+        txtId.setText("ID: " + getItem(position).getTicketIdId());
+        txtShowDate.setText("Datum: " + date + ", Parkdauer: " + getItem(position).getDauer() + "min");
+        txtPreis.setText("Preis: " + (getItem(position).getPrice()/100) + "," + (getItem(position).getPrice()%100) + "€");
 
         iBtnDel.setOnClickListener(new View.OnClickListener() {
             @Override

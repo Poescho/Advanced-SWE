@@ -52,7 +52,7 @@ public class FragmentQuittungsList extends MyFragment {
     public void updateQuittungsList() throws DbException {
         List<Ticket> allTickets = mCallback.getKassenautomatContext().getDatabaseConnection().getTicketsFromUser(mCallback.getKassenautomatContext().getCurrentUser().getId());
 
-        List<Quittung> allQuittungs = null;
+        LinkedList<Quittung> allQuittungs = new LinkedList<Quittung>();
         for(Ticket ticket : allTickets){
             try {
                 allQuittungs.add(ticket.getQuittung(mCallback.getKassenautomatContext().getDatabaseConnection()));
