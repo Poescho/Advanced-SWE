@@ -208,7 +208,7 @@ public class FragmentAutomat extends MyFragment {
 
             random.setSeed(new Date().getTime());
 
-           if( random.nextInt(10) == random.nextInt(10)) {
+           if(random.nextInt(3) == random.nextInt(3)) {
 
                 txtDisplay.setText(R.string.park_coin_stuck);
                 Handler handler = new Handler();
