@@ -94,8 +94,10 @@ public class FragmentAutomat extends MyFragment {
             public void onClick(View v) {
                 if(toggle.getText().equals("Quittungen anzeigen")){
                     mCallback.changeToQuittungsList();
+                    toggle.setText("Tickets anzeigen");
                 } else if(toggle.getText().equals("Tickets anzeigen")){
                     mCallback.returnToTicketList();
+                    toggle.setText("Quittungen anzeigen");
                 }
             }
         });

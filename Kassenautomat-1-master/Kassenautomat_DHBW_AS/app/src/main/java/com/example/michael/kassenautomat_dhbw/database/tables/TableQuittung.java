@@ -9,9 +9,9 @@ public class TableQuittung {
     public static final String DB_TABLE_NAME = "Quittung";
 
     public static final String DB_COLUMN_ID = "_id";
-    public static final String DB_COLUMN_TICKET_ID = "UserId";
+    public static final String DB_COLUMN_TICKET_ID = "TicketId";
     public static final String DB_COLUMN_DATE = "Date";
-    public static final String DB_COLUMN_DATE_TICKET = "Ticket Date";
+    public static final String DB_COLUMN_DATE_TICKET = "TicketDate";
     public static final String DB_COLUMN_PRICE = "Price";
     public static final String DB_COLUMN_DAUER = "Dauer";
 

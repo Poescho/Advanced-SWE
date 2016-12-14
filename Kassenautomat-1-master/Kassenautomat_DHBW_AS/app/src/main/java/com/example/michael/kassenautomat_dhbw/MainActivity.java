@@ -139,6 +139,11 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
     }
 
     @Override
+    public void updateQuittungsList() throws DbException {
+        fragmentQuittungsList.updateQuittungsList();
+    }
+
+    @Override
     public void updateCoinList() {
         fragmentCoinList.updateCoinList();
     }

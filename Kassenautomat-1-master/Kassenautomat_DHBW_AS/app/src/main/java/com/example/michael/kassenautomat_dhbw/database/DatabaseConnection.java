@@ -213,7 +213,7 @@ public class DatabaseConnection {
 
         if(c.getCount() > 0) {
             c.moveToFirst();
-            Quittung quittung= new Quittung(c.getLong(0), c.getLong(1), c.getLong(2), c.getLong(3), c.getLong(4), c.getLong(5));
+            Quittung quittung = new Quittung(c.getLong(0), c.getLong(1), c.getLong(2), c.getLong(3), c.getLong(4), c.getLong(5));
             c.close();
             return quittung;
         }

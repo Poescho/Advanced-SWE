@@ -65,8 +65,12 @@ public class QuittungsListAdapter extends MyAdapter<Quittung> {
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
-                mCallback.setTextOfDisplay(R.string.ticket_deleted);
-                mCallback.updateTicketList();
+                mCallback.setTextOfDisplay(R.string.quittung_deleted);
+                try {
+                    mCallback.updateQuittungsList();
+                } catch (DbException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

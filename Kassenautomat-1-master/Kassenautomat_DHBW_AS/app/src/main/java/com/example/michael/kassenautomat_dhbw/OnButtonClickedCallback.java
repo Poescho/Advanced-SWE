@@ -1,6 +1,7 @@
 package com.example.michael.kassenautomat_dhbw;
 
 import com.example.michael.kassenautomat_dhbw.datatypes.Ticket;
+import com.example.michael.kassenautomat_dhbw.exceptions.DbException;
 import com.example.michael.kassenautomat_dhbw.util.KassenautomatContext;
 
 /**
@@ -10,6 +11,7 @@ public interface OnButtonClickedCallback {
     void onPayForTicket(int moneyValue);
     void setTextOfDisplay(int stringId);
     void updateTicketList();
+    void updateQuittungsList() throws DbException;
     void updateCoinList();
     void returnToTicketList();
     void changeToQuittungsList();

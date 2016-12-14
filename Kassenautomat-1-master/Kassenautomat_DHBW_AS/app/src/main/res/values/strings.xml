@@ -38,6 +38,7 @@
     <string name="ticket_paid">Ticket wurde bezahlt.</string>
     <string name="fake_coin">Münze ist gefälscht!</string>
     <string name="ticket_deleted">Ticket gelöscht.</string>
+    <string name="quittung_deleted">Quittung gelöscht.</string>
     <string name="ticket_now_invalid">Ticket jetzt ungültig.</string>
     <string name="ticket_was_already_paid">Ticket wurde bereits bezahlt.</string>
     <string name="ticket_was_not_valid">Ticket ist ungültig.</string>
