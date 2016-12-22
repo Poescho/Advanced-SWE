@@ -38,6 +38,7 @@ public class KassenautomatContext {
         this.fragmentManager = fragmentManager;
 
         if(context != null) {
+
             databaseConnection = new DatabaseConnection(context);
 
             SharedPreferences prefs = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);

@@ -9,7 +9,9 @@
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:orientation="vertical"
-    android:weightSum="1000">
+    android:weightSum="1000"
+    android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
+    android:paddingRight="?android:attr/listPreferredItemPaddingRight">
 
     <TextView
         android:text="@string/dummy"
@@ -60,7 +62,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            />
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 
@@ -91,7 +93,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            />
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 
@@ -111,7 +113,8 @@
             android:text="@string/ok"
             android:layout_alignParentStart="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true" />
 
 
 
@@ -120,7 +123,8 @@
             android:text="@string/cancel"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 

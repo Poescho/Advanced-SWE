@@ -188,7 +188,9 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickedCa
     @Override
     protected void onRestart() {
         super.onRestart();
-        kassenautomatContext = new KassenautomatContext(MainActivity.this, getSupportFragmentManager());
+        //Kann man auch wieder heraus hauen
+
+                kassenautomatContext = new KassenautomatContext(MainActivity.this, getSupportFragmentManager());
     }
 
     @Override

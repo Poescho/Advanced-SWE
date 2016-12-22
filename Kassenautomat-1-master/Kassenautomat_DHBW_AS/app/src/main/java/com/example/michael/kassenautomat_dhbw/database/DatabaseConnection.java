@@ -42,6 +42,10 @@ public class DatabaseConnection {
      * @param context Is there to save the database in the right place. Meaning the context of the application.
      */
     public DatabaseConnection(Context context) {
+        if(database != null) {
+           database.close();
+        }
+
         database = new MySQLiteOpenHelper(context);
         writeDatabase = database.getWritableDatabase();
     }
